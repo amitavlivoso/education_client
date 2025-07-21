@@ -10,13 +10,13 @@ import Footer from '../../components/student/Footer'
 function App() {
   return (
     <div className="font-sans">
-     <Navbar/>
+
      <Herosection/>
      <Work/>
      <Course/>
      <Topcat/>
      <Testimonial/>
-     <Footer/>
+   
     </div>
   );
 }
