@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // <-- ADD THIS
 import { FaUserCircle, FaBell, FaChevronDown, FaBars } from "react-icons/fa";
 
 export default function Header({ onMenuClick }) {
+  const navigate = useNavigate(); // <-- INIT NAVIGATE
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  const role = storedUser?.role || "";
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -15,6 +19,12 @@ export default function Header({ onMenuClick }) {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Logout handler
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser"); // Clear session
+    navigate("/"); // Redirect to home
+  };
 
   return (
     <header className="w-full bg-white shadow-xl px-4 py-3">
@@ -55,7 +65,7 @@ export default function Header({ onMenuClick }) {
             >
               <FaUserCircle className="text-gray-600 text-xl" />
               <span className="text-sm text-gray-700 font-medium hidden sm:inline">
-                Admin
+                {role}
               </span>
               <FaChevronDown className="text-gray-400 text-xs hidden sm:inline" />
             </div>
@@ -66,8 +76,10 @@ export default function Header({ onMenuClick }) {
                   <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                     Profile
                   </li>
-
-                  <li className="border-t border-gray-200 px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li
+                    onClick={handleLogout}
+                    className="border-t border-gray-200 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  >
                     Logout
                   </li>
                 </ul>

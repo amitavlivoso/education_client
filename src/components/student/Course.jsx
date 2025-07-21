@@ -11,7 +11,6 @@ const courses = [
   {
     title: "Organic Chemistry",
     subtitle: "(Including All Subjects)",
-    price: "$33.99",
     students: "5,957 Students",
     duration: "01h 49m",
     image: course1,
@@ -19,7 +18,7 @@ const courses = [
   {
     title: "Physics 2.0",
     subtitle: "(Including All Subjects)",
-    price: "$45.99",
+
     students: "4,120 Students",
     duration: "02h 10m",
     image: course2,
@@ -27,7 +26,7 @@ const courses = [
   {
     title: "Mathematics",
     subtitle: "(Including All Subjects)",
-    price: "$39.99",
+
     students: "3,800 Students",
     duration: "01h 30m",
     image: course3,
@@ -35,7 +34,7 @@ const courses = [
   {
     title: "Physics",
     subtitle: "(Including All Subjects)",
-    price: "$33.99",
+
     students: "5,957 Students",
     duration: "01h 49m",
     image: course4,
@@ -43,7 +42,7 @@ const courses = [
   {
     title: "Physics",
     subtitle: "(Including All Subjects)",
-    price: "$33.99",
+
     students: "5,957 Students",
     duration: "01h 49m",
     image: course5,
@@ -51,7 +50,7 @@ const courses = [
   {
     title: "Physics",
     subtitle: "(Including All Subjects)",
-    price: "$33.99",
+
     students: "5,957 Students",
     duration: "01h 49m",
     image: course6,
@@ -90,10 +89,6 @@ const Course = () => {
                 {course.title}
               </h3>
               <p className="text-sm text-gray-500">{course.subtitle}</p>
-              <div className="flex justify-between items-center mt-4">
-                <p className="text-lg font-bold text-gray-900">{course.price}</p>
-                <FiShoppingCart className="text-xl text-gray-700 cursor-pointer hover:text-green-600" />
-              </div>
             </div>
           </div>
         ))}

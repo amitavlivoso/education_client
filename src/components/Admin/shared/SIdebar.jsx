@@ -55,23 +55,13 @@ const adminsidebarItems = [
     children: [
       {
         label: "Study Materials",
-        link: "/admin/content/materials",
+        link: "/teacher/dashboard/all-notes",
         icon: <FaBook />,
       },
       {
         label: "Upload New Material",
-        link: "/admin/content/upload",
+        link: "/teacher/dashboard/upload-pdf",
         icon: <FaCloudUploadAlt />,
-      },
-      {
-        label: "Pending Approvals",
-        link: "/admin/content/approvals",
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Removed Content",
-        link: "/admin/content/removed",
-        icon: <FaClock />,
       },
     ],
   },
@@ -81,23 +71,13 @@ const adminsidebarItems = [
     children: [
       {
         label: "Create Exam",
-        link: "/admin/exams/create",
+        link: "/teacher/dashboard/exam-upload",
         icon: <FaLayerGroup />,
       },
       {
         label: "All Exams",
-        link: "/admin/exams",
+        link: "/teacher/dashboard/all-exams",
         icon: <FaFileAlt />,
-      },
-      {
-        label: "Question Bank",
-        link: "/admin/exams/questions",
-        icon: <FaBook />,
-      },
-      {
-        label: "Plagiarism Reports",
-        link: "/admin/exams/plagiarism",
-        icon: <FaSearch />,
       },
     ],
   },
@@ -107,17 +87,7 @@ const adminsidebarItems = [
     children: [
       {
         label: "Student Reports",
-        link: "/admin/reports/students",
-        icon: <FaChartBar />,
-      },
-      {
-        label: "Teacher Analytics",
-        link: "/admin/reports/teachers",
-        icon: <FaChartBar />,
-      },
-      {
-        label: "Exam Statistics",
-        link: "/admin/reports/exams",
+        link: "/teacher/dashboard/student-performance-report",
         icon: <FaChartBar />,
       },
     ],
@@ -177,23 +147,13 @@ export const teacherSidebarItems = [
     children: [
       {
         label: "Study Materials",
-        link: "/teacher/content/materials",
+        link: "/teacher/dashboard/all-notes",
         icon: <FaBook />,
       },
       {
         label: "Upload New Material",
-        link: "/teacher/content/upload",
+        link: "/teacher/dashboard/upload-pdf",
         icon: <FaCloudUploadAlt />,
-      },
-      {
-        label: "Pending Approvals",
-        link: "/teacher/content/approvals",
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Removed Content",
-        link: "/teacher/content/removed",
-        icon: <FaClock />,
       },
     ],
   },
@@ -203,23 +163,13 @@ export const teacherSidebarItems = [
     children: [
       {
         label: "Create Exam",
-        link: "/teacher/exams/create",
+        link: "/teacher/dashboard/exam-upload",
         icon: <FaLayerGroup />,
       },
       {
         label: "All Exams",
-        link: "/teacher/exams",
+        link: "/teacher/dashboard/all-exams",
         icon: <FaFileAlt />,
-      },
-      {
-        label: "Question Bank",
-        link: "/teacher/exams/questions",
-        icon: <FaBook />,
-      },
-      {
-        label: "Plagiarism Reports",
-        link: "/teacher/exams/plagiarism",
-        icon: <FaSearch />,
       },
     ],
   },
@@ -229,17 +179,7 @@ export const teacherSidebarItems = [
     children: [
       {
         label: "Student Reports",
-        link: "/teacher/reports/students",
-        icon: <FaChartBar />,
-      },
-      {
-        label: "Teacher Analytics",
-        link: "/teacher/reports/teachers",
-        icon: <FaChartBar />,
-      },
-      {
-        label: "Exam Statistics",
-        link: "/teacher/reports/exams",
+        link: "/teacher/dashboard/student-performance-report",
         icon: <FaChartBar />,
       },
     ],
@@ -253,9 +193,9 @@ export const studentSidebarItems = [
     link: "/student/dashboard",
   },
   {
-    label: "My Materials",
+    label: "Study Materials",
     icon: <FaBook />,
-    link: "/student/materials",
+    link: "/student/dashboard/studymaterial",
   },
   {
     label: "My Exams",
@@ -263,20 +203,20 @@ export const studentSidebarItems = [
     children: [
       {
         label: "Upcoming Exams",
-        link: "/student/exams/upcoming",
+        link: "/student/dashboard/exam",
         icon: <FaClock />,
       },
       {
         label: "Past Exams",
-        link: "/student/exams/history",
+        link: "/student/dashboard/all-exams",
         icon: <FaFileAlt />,
       },
     ],
   },
   {
-    label: "Performance",
+    label: "Result",
     icon: <FaChartBar />,
-    link: "/student/performance",
+    link: "/student/dashboard/result",
   },
   {
     label: "Notifications",
@@ -285,8 +225,10 @@ export const studentSidebarItems = [
   },
 ];
 
-export default function AdminSidebar({ onClose, role }) {
+export default function AdminSidebar({ onClose }) {
   let sidebarItems = [];
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  const role = storedUser?.role || "";
 
   if (role === "admin") {
     sidebarItems = adminsidebarItems;
