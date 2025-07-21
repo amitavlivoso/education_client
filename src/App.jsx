@@ -16,6 +16,7 @@ function App() {
             <Route path="user" element={<AllUser />} />
             <Route path="add-user" element={<AddUserForm />} />
             <Route path="deactive-user" element={<DeActivated />} />
+             
           </Route>
         </Routes>
       </BrowserRouter>

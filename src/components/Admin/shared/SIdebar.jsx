@@ -22,7 +22,7 @@ import {
   FaUserShield,
 } from "react-icons/fa";
 
-const sidebarItems = [
+const adminsidebarItems = [
   {
     label: "Dashboard",
     icon: <FaTachometerAlt />,
@@ -165,8 +165,136 @@ const sidebarItems = [
     ],
   },
 ];
+export const teacherSidebarItems = [
+  {
+    label: "Dashboard",
+    icon: <FaTachometerAlt />,
+    link: "/teacher/dashboard",
+  },
+  {
+    label: "Content Management",
+    icon: <FaFileAlt />,
+    children: [
+      {
+        label: "Study Materials",
+        link: "/teacher/content/materials",
+        icon: <FaBook />,
+      },
+      {
+        label: "Upload New Material",
+        link: "/teacher/content/upload",
+        icon: <FaCloudUploadAlt />,
+      },
+      {
+        label: "Pending Approvals",
+        link: "/teacher/content/approvals",
+        icon: <FaClipboardList />,
+      },
+      {
+        label: "Removed Content",
+        link: "/teacher/content/removed",
+        icon: <FaClock />,
+      },
+    ],
+  },
+  {
+    label: "Exam Management",
+    icon: <FaChartBar />,
+    children: [
+      {
+        label: "Create Exam",
+        link: "/teacher/exams/create",
+        icon: <FaLayerGroup />,
+      },
+      {
+        label: "All Exams",
+        link: "/teacher/exams",
+        icon: <FaFileAlt />,
+      },
+      {
+        label: "Question Bank",
+        link: "/teacher/exams/questions",
+        icon: <FaBook />,
+      },
+      {
+        label: "Plagiarism Reports",
+        link: "/teacher/exams/plagiarism",
+        icon: <FaSearch />,
+      },
+    ],
+  },
+  {
+    label: "Performance Reports",
+    icon: <FaChartBar />,
+    children: [
+      {
+        label: "Student Reports",
+        link: "/teacher/reports/students",
+        icon: <FaChartBar />,
+      },
+      {
+        label: "Teacher Analytics",
+        link: "/teacher/reports/teachers",
+        icon: <FaChartBar />,
+      },
+      {
+        label: "Exam Statistics",
+        link: "/teacher/reports/exams",
+        icon: <FaChartBar />,
+      },
+    ],
+  },
+];
 
-export default function AdminSidebar({ onClose }) {
+export const studentSidebarItems = [
+  {
+    label: "Dashboard",
+    icon: <FaTachometerAlt />,
+    link: "/student/dashboard",
+  },
+  {
+    label: "My Materials",
+    icon: <FaBook />,
+    link: "/student/materials",
+  },
+  {
+    label: "My Exams",
+    icon: <FaChartBar />,
+    children: [
+      {
+        label: "Upcoming Exams",
+        link: "/student/exams/upcoming",
+        icon: <FaClock />,
+      },
+      {
+        label: "Past Exams",
+        link: "/student/exams/history",
+        icon: <FaFileAlt />,
+      },
+    ],
+  },
+  {
+    label: "Performance",
+    icon: <FaChartBar />,
+    link: "/student/performance",
+  },
+  {
+    label: "Notifications",
+    icon: <FaBell />,
+    link: "/student/notifications",
+  },
+];
+
+export default function AdminSidebar({ onClose, role }) {
+  let sidebarItems = [];
+
+  if (role === "admin") {
+    sidebarItems = adminsidebarItems;
+  } else if (role === "teacher") {
+    sidebarItems = teacherSidebarItems;
+  } else if (role === "student") {
+    sidebarItems = studentSidebarItems;
+  }
   const [openMenus, setOpenMenus] = useState({});
 
   const toggleMenu = (label) => {
