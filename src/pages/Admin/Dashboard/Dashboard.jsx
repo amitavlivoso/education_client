@@ -11,7 +11,7 @@ export default function Dashboard() {
   const stats = [
     {
       icon: <FaUserGraduate className="text-white" />,
-      label: "Total Exams",
+      label: "Total Students",
       value: "1,240",
       percentage: 6,
       isIncrease: true,
@@ -19,7 +19,7 @@ export default function Dashboard() {
     },
     {
       icon: <FaChalkboardTeacher className="text-white" />,
-      label: "Total Attendance",
+      label: "Classes Held Today",
       value: "38",
       percentage: 4,
       isIncrease: true,
@@ -35,7 +35,7 @@ export default function Dashboard() {
     },
     {
       icon: <FaUserCheck className="text-white" />,
-      label: "Study Material",
+      label: "Today's Attendance",
       value: "89%",
       percentage: 3,
       isIncrease: true,
