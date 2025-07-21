@@ -22,7 +22,7 @@ import {
   FaUserShield,
 } from "react-icons/fa";
 
-const sidebarItems = [
+const adminsidebarItems = [
   {
     label: "Dashboard",
     icon: <FaTachometerAlt />,
@@ -34,17 +34,17 @@ const sidebarItems = [
     children: [
       {
         label: "All Users",
-        link: "/admin/users",
+        link: "/admin/dashboard/user",
         icon: <FaUserPlus />,
       },
       {
         label: "Add User",
-        link: "/admin/users/add",
+        link: "/admin/dashboard/add-user",
         icon: <FaUserPlus />,
       },
       {
         label: "Deactivated Users",
-        link: "/admin/users/deactivated",
+        link: "/admin/dashboard/deactive-user",
         icon: <FaShieldAlt />,
       },
     ],
@@ -55,23 +55,13 @@ const sidebarItems = [
     children: [
       {
         label: "Study Materials",
-        link: "/admin/content/materials",
+        link: "/teacher/dashboard/all-notes",
         icon: <FaBook />,
       },
       {
         label: "Upload New Material",
-        link: "/admin/content/upload",
+        link: "/teacher/dashboard/upload-pdf",
         icon: <FaCloudUploadAlt />,
-      },
-      {
-        label: "Pending Approvals",
-        link: "/admin/content/approvals",
-        icon: <FaClipboardList />,
-      },
-      {
-        label: "Removed Content",
-        link: "/admin/content/removed",
-        icon: <FaClock />,
       },
     ],
   },
@@ -81,23 +71,13 @@ const sidebarItems = [
     children: [
       {
         label: "Create Exam",
-        link: "/admin/exams/create",
+        link: "/teacher/dashboard/exam-upload",
         icon: <FaLayerGroup />,
       },
       {
         label: "All Exams",
-        link: "/admin/exams",
+        link: "/teacher/dashboard/all-exams",
         icon: <FaFileAlt />,
-      },
-      {
-        label: "Question Bank",
-        link: "/admin/exams/questions",
-        icon: <FaBook />,
-      },
-      {
-        label: "Plagiarism Reports",
-        link: "/admin/exams/plagiarism",
-        icon: <FaSearch />,
       },
     ],
   },
@@ -107,17 +87,7 @@ const sidebarItems = [
     children: [
       {
         label: "Student Reports",
-        link: "/admin/reports/students",
-        icon: <FaChartBar />,
-      },
-      {
-        label: "Teacher Analytics",
-        link: "/admin/reports/teachers",
-        icon: <FaChartBar />,
-      },
-      {
-        label: "Exam Statistics",
-        link: "/admin/reports/exams",
+        link: "/teacher/dashboard/student-performance-report",
         icon: <FaChartBar />,
       },
     ],
@@ -165,8 +135,108 @@ const sidebarItems = [
     ],
   },
 ];
+export const teacherSidebarItems = [
+  {
+    label: "Dashboard",
+    icon: <FaTachometerAlt />,
+    link: "/teacher/dashboard",
+  },
+  {
+    label: "Content Management",
+    icon: <FaFileAlt />,
+    children: [
+      {
+        label: "Study Materials",
+        link: "/teacher/dashboard/all-notes",
+        icon: <FaBook />,
+      },
+      {
+        label: "Upload New Material",
+        link: "/teacher/dashboard/upload-pdf",
+        icon: <FaCloudUploadAlt />,
+      },
+    ],
+  },
+  {
+    label: "Exam Management",
+    icon: <FaChartBar />,
+    children: [
+      {
+        label: "Create Exam",
+        link: "/teacher/dashboard/exam-upload",
+        icon: <FaLayerGroup />,
+      },
+      {
+        label: "All Exams",
+        link: "/teacher/dashboard/all-exams",
+        icon: <FaFileAlt />,
+      },
+    ],
+  },
+  {
+    label: "Performance Reports",
+    icon: <FaChartBar />,
+    children: [
+      {
+        label: "Student Reports",
+        link: "/teacher/dashboard/student-performance-report",
+        icon: <FaChartBar />,
+      },
+    ],
+  },
+];
+
+export const studentSidebarItems = [
+  {
+    label: "Dashboard",
+    icon: <FaTachometerAlt />,
+    link: "/student/dashboard",
+  },
+  {
+    label: "Study Materials",
+    icon: <FaBook />,
+    link: "/student/dashboard/studymaterial",
+  },
+  {
+    label: "My Exams",
+    icon: <FaChartBar />,
+    children: [
+      {
+        label: "Upcoming Exams",
+        link: "/student/dashboard/exam",
+        icon: <FaClock />,
+      },
+      {
+        label: "Past Exams",
+        link: "/student/dashboard/all-exams",
+        icon: <FaFileAlt />,
+      },
+    ],
+  },
+  {
+    label: "Result",
+    icon: <FaChartBar />,
+    link: "/student/dashboard/result",
+  },
+  {
+    label: "Notifications",
+    icon: <FaBell />,
+    link: "/student/notifications",
+  },
+];
 
 export default function AdminSidebar({ onClose }) {
+  let sidebarItems = [];
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  const role = storedUser?.role || "";
+
+  if (role === "admin") {
+    sidebarItems = adminsidebarItems;
+  } else if (role === "teacher") {
+    sidebarItems = teacherSidebarItems;
+  } else if (role === "student") {
+    sidebarItems = studentSidebarItems;
+  }
   const [openMenus, setOpenMenus] = useState({});
 
   const toggleMenu = (label) => {
@@ -174,9 +244,9 @@ export default function AdminSidebar({ onClose }) {
   };
 
   return (
-    <aside className="w-64 h-screen bg-white shadow-xl flex flex-col relative border-r">
+    <aside className="w-64 h-screen bg-white shadow-xl flex flex-col relative border-r border-gray-200">
       {/* Top Brand Header */}
-      <div className="flex items-center justify-between p-5 bg-blue-100 border-b">
+      <div className="flex items-center justify-between p-5 bg-blue-100 border-b border-gray-200">
         <div className="flex items-center">
           <FaClinicMedical className="text-blue-600 text-xl mr-2" />
           <span className="text-xl font-bold text-blue-800">EduAdmin</span>

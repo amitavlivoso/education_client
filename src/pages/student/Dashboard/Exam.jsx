@@ -15,7 +15,12 @@ const examData = {
     },
     {
       question: "What does DOM stand for?",
-      options: ["Data Object Model", "Document Object Model", "Digital Ordinance Model", "Desktop Object Model"],
+      options: [
+        "Data Object Model",
+        "Document Object Model",
+        "Digital Ordinance Model",
+        "Desktop Object Model",
+      ],
     },
     {
       question: "Which of the following is a JavaScript framework?",
@@ -35,7 +40,12 @@ const examData = {
     },
     {
       question: "Which method is used to convert JSON to a JS object?",
-      options: ["JSON.parse()", "JSON.stringify()", "JSON.objectify()", "JSON.toObject()"],
+      options: [
+        "JSON.parse()",
+        "JSON.stringify()",
+        "JSON.objectify()",
+        "JSON.toObject()",
+      ],
     },
     {
       question: "Which keyword is used to define a constant?",
@@ -61,7 +71,7 @@ const Exam = () => {
   // Countdown Timer
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
+      setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
           handleSubmit(); // Auto-submit on timeout
@@ -75,7 +85,7 @@ const Exam = () => {
   }, []);
 
   const handleChange = (qIndex, value) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
       [qIndex]: value,
     }));
@@ -83,7 +93,7 @@ const Exam = () => {
 
   const handleSubmit = () => {
     console.log("Submitted Answers:", answers);
-    navigate("/thankyou");
+    navigate("/student/dashboard/thankyou");
   };
 
   const formatTime = () => {
@@ -106,13 +116,19 @@ const Exam = () => {
 
         <div className="space-y-6">
           {examData.questions.map((q, idx) => (
-            <div key={idx} className="p-4 border border-gray-200 rounded-lg bg-gray-50">
+            <div
+              key={idx}
+              className="p-4 border border-gray-200 rounded-lg bg-gray-50"
+            >
               <p className="font-semibold mb-3">
                 {idx + 1}. {q.question}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {q.options.map((opt, optIdx) => (
-                  <label key={optIdx} className="flex items-center space-x-2  rounded-md p-2 ">
+                  <label
+                    key={optIdx}
+                    className="flex items-center space-x-2  rounded-md p-2 "
+                  >
                     <input
                       type="radio"
                       name={`question-${idx}`}
@@ -143,5 +159,3 @@ const Exam = () => {
 };
 
 export default Exam;
-
-

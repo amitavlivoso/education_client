@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import {
-  FiMenu,
-  FiX,
-  FiSearch,
-  FiUser,
-  FiShoppingCart,
-} from "react-icons/fi";
+import { FiMenu, FiX, FiSearch, FiUser, FiShoppingCart } from "react-icons/fi";
 import logo from "../../assets/logo.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -22,12 +18,24 @@ const Navbar = () => {
 
         {/* Center Navigation (desktop only) */}
         <nav className="hidden lg:flex gap-6 font-medium text-gray-700">
-          <a href="#" className="hover:text-blue-600">Home</a>
-          <a href="#" className="hover:text-blue-600">Courses</a>
-          <a href="#" className="hover:text-blue-600">Blog</a>
-          <a href="#" className="hover:text-blue-600">Shop</a>
-          <a href="#" className="hover:text-blue-600">Pages</a>
-          <a href="#" className="hover:text-blue-600">Events</a>
+          <a href="#" className="hover:text-blue-600">
+            Home
+          </a>
+          <a href="#" className="hover:text-blue-600">
+            Courses
+          </a>
+          <a href="#" className="hover:text-blue-600">
+            Blog
+          </a>
+          <a href="#" className="hover:text-blue-600">
+            Shop
+          </a>
+          <a href="#" className="hover:text-blue-600">
+            Pages
+          </a>
+          <a href="#" className="hover:text-blue-600">
+            Events
+          </a>
         </nav>
 
         {/* Right Side (icons + buttons compact) */}
@@ -37,8 +45,16 @@ const Navbar = () => {
             <FiSearch className="w-5 h-5 cursor-pointer" />
             <FiUser className="w-5 h-5 cursor-pointer" />
             <FiShoppingCart className="w-5 h-5 cursor-pointer" />
-            <span className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer ml-2">Login</span>
-            <button className="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-md text-sm">
+            <span
+              className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer ml-2"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </span>
+            <button
+              className="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-md text-sm"
+              onClick={() => navigate("/signup")}
+            >
               Signup
             </button>
           </div>
@@ -57,12 +73,24 @@ const Navbar = () => {
       {menuOpen && (
         <div className="sm:hidden bg-white px-4 pb-4 shadow-md">
           <nav className="flex flex-col gap-2 text-gray-700 font-medium mt-2">
-            <a href="#" className="py-2 border-b">Home</a>
-            <a href="#" className="py-2 border-b">Courses</a>
-            <a href="#" className="py-2 border-b">Blog</a>
-            <a href="#" className="py-2 border-b">Shop</a>
-            <a href="#" className="py-2 border-b">Pages</a>
-            <a href="#" className="py-2 border-b">Events</a>
+            <a href="#" className="py-2 border-b">
+              Home
+            </a>
+            <a href="#" className="py-2 border-b">
+              Courses
+            </a>
+            <a href="#" className="py-2 border-b">
+              Blog
+            </a>
+            <a href="#" className="py-2 border-b">
+              Shop
+            </a>
+            <a href="#" className="py-2 border-b">
+              Pages
+            </a>
+            <a href="#" className="py-2 border-b">
+              Events
+            </a>
           </nav>
 
           {/* Mobile icons + buttons */}
@@ -70,10 +98,15 @@ const Navbar = () => {
             <FiSearch className="w-5 h-5" />
             <FiUser className="w-5 h-5" />
             <FiShoppingCart className="w-5 h-5" />
-            <span className="text-sm text-gray-700 ps-lg-5">Login</span>
-            <button className="px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-md text-sm">
+            <Link className="text-sm text-gray-700 ps-5" to="/login">
+              Login
+            </Link>
+            <Link
+              className="px-3 py-1.5 bg-gradient-to-r cursor-pointer from-blue-500 to-purple-500 text-white rounded-md text-sm"
+              to="/signup"
+            >
               Signup
-            </button>
+            </Link>
           </div>
         </div>
       )}
