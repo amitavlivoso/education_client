@@ -9,7 +9,7 @@ export default function Layout() {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar - Desktop */}
-      <div className="hidden md:block">
+      <div className="hidden md:block ">
         <Sidebar />
       </div>
 
@@ -27,7 +27,7 @@ export default function Layout() {
       )}
 
       {/* Main Content */}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 ">
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
         <main className="flex-1 bg-gray-50 overflow-y-auto p-4">
           <Outlet />

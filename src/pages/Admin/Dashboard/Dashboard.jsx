@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import StudentStatsCard from "../../../components/Admin/Dashboard/StudentStatsCard";
 import AllUsersTable from "./AllUsers";
+import DashboardCards from "../../../components/Admin/Dashboard/DashboardCard";
 
 export default function Dashboard() {
   const stats = [
@@ -48,7 +49,7 @@ export default function Dashboard() {
     <div className="mx-auto p-4 w-full md:w-full">
       <h2 className="text-xl font-semibold mb-4">Education Dashboard</h2>
 
-      <div className="flex flex-wrap justify-center gap-5">
+      <div className=" w-full gap-2 flex flex-wrap justify-center">
         {stats.map((item, idx) => (
           <StatCard key={idx} {...item} />
         ))}
@@ -59,6 +60,9 @@ export default function Dashboard() {
       </div>
       <div className="mt-10">
         <AllUsersTable />
+      </div>
+      <div className="mt-10">
+        <DashboardCards />
       </div>
     </div>
   );

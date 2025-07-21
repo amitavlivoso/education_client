@@ -1,8 +1,8 @@
 import {
   FaUserGraduate,
   FaClipboardList,
-  FaDollarSign,
   FaExclamationTriangle,
+  FaCheckCircle,
 } from "react-icons/fa";
 import { useState } from "react";
 import StudentStatsChart from "./StudentStatsChart";
@@ -24,9 +24,9 @@ export default function StudentStatsCard() {
       color: "text-red-600",
     },
     {
-      label: "Fees Collected",
-      value: "$52,000",
-      icon: <FaDollarSign />,
+      label: "Completed Exams",
+      value: "520",
+      icon: <FaCheckCircle />,
       color: "text-green-600",
     },
     {
@@ -65,7 +65,7 @@ export default function StudentStatsCard() {
           </div>
         ))}
       </div>
-      <StudentStatsChart range={range} /> {/* Replace with your own chart */}
+      <StudentStatsChart range={range} />
     </div>
   );
 }

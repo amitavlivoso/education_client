@@ -34,17 +34,17 @@ const sidebarItems = [
     children: [
       {
         label: "All Users",
-        link: "/admin/users",
+        link: "/admin/dashboard/user",
         icon: <FaUserPlus />,
       },
       {
         label: "Add User",
-        link: "/admin/users/add",
+        link: "/admin/dashboard/add-user",
         icon: <FaUserPlus />,
       },
       {
         label: "Deactivated Users",
-        link: "/admin/users/deactivated",
+        link: "/admin/dashboard/deactive-user",
         icon: <FaShieldAlt />,
       },
     ],
@@ -174,9 +174,9 @@ export default function AdminSidebar({ onClose }) {
   };
 
   return (
-    <aside className="w-64 h-screen bg-white shadow-xl flex flex-col relative border-r">
+    <aside className="w-64 h-screen bg-white shadow-xl flex flex-col relative border-r border-gray-200">
       {/* Top Brand Header */}
-      <div className="flex items-center justify-between p-5 bg-blue-100 border-b">
+      <div className="flex items-center justify-between p-5 bg-blue-100 border-b border-gray-200">
         <div className="flex items-center">
           <FaClinicMedical className="text-blue-600 text-xl mr-2" />
           <span className="text-xl font-bold text-blue-800">EduAdmin</span>

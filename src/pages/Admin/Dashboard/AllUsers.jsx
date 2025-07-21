@@ -1,100 +1,87 @@
-export default function AllStudentsTable() {
-  const students = [
+import { useNavigate } from "react-router-dom";
+
+export default function AllUsersTable() {
+  const dummyUsers = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      phone: "+91 98765 43210",
-      address: "Mumbai, MH",
-      completedTasks: 12,
-      pendingTasks: 5,
+      name: "Amitav Pusty",
+      email: "amitav@example.com",
+      role: "Student",
       status: "Active",
     },
     {
       id: 2,
-      name: "Anita Sharma",
-      phone: "+91 91234 56789",
-      address: "Delhi, DL",
-      completedTasks: 8,
-      pendingTasks: 7,
-      status: "Due",
+      name: "John Doe",
+      email: "john@example.com",
+      role: "Teacher",
+      status: "Active",
     },
     {
       id: 3,
-      name: "Mohammed Ali",
-      phone: "+91 99887 66554",
-      address: "Bangalore, KA",
-      completedTasks: 15,
-      pendingTasks: 3,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      role: "Teacher",
       status: "Active",
     },
     {
       id: 4,
-      name: "Priya Singh",
-      phone: "+91 91122 33445",
-      address: "Chennai, TN",
-      completedTasks: 0,
-      pendingTasks: 2,
-      status: "Inactive",
+      name: "Michael Brown",
+      email: "michael@example.com",
+      role: "Student",
+      status: "Active",
     },
   ];
 
   const statusClasses = {
     Active: "bg-green-100 text-green-800 border border-green-300",
-    Due: "bg-yellow-50 text-yellow-800 border border-yellow-300",
-    Inactive: "bg-red-50 text-red-800 border border-red-300",
+    Inactive: "bg-red-100 text-red-700 border border-red-300",
   };
 
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
-      {/* Header with gradient */}
+      {/* Header */}
       <div className="flex justify-between items-center mb-6 pb-3">
         <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
-          All Students
+          All Users
         </h3>
-        <button className="text-sm px-3 py-1 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition">
+        <button
+          className="text-sm px-3 py-1 cursor-pointer rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition"
+          onClick={() => navigate("/admin/dashboard/user")}
+        >
           View All
         </button>
       </div>
 
+      {/* Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left">
-          <thead className="bg-gradient-to-r from-blue-50 to-purple-50 text-gray-700">
+          <thead className="bg-gradient-to-r bg-blue-600  text-white ">
             <tr>
-              <th className="px-4 py-3 font-semibold">Student</th>
-              <th className="px-4 py-3 font-semibold">Contact</th>
-              <th className="px-4 py-3 font-semibold">Address</th>
-              <th className="px-4 py-3 font-semibold">Performance</th>
+              <th className="px-4 py-3 font-semibold">Name</th>
+              <th className="px-4 py-3 font-semibold">Email</th>
+              <th className="px-4 py-3 font-semibold">Role</th>
               <th className="px-4 py-3 font-semibold">Status</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
-            {students.map((student) => (
+            {dummyUsers.map((user) => (
               <tr
-                key={student.id}
+                key={user.id}
                 className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition"
               >
                 <td className="px-4 py-3 font-medium text-gray-800">
-                  {student.name}
+                  {user.name}
                 </td>
-                <td className="px-4 py-3 text-gray-600">{student.phone}</td>
-                <td className="px-4 py-3 text-gray-600">{student.address}</td>
-                <td className="px-4 py-3 text-gray-700 font-medium">
-                  <span className="text-teal-600">
-                    {student.completedTasks} Completed
-                  </span>{" "}
-                  /{" "}
-                  <span className="text-orange-500">
-                    {student.pendingTasks} Pending
-                  </span>
-                </td>
+                <td className="px-4 py-3 text-gray-600">{user.email}</td>
+                <td className="px-4 py-3 text-gray-700">{user.role}</td>
                 <td className="px-4 py-3">
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
-                      statusClasses[student.status] ||
-                      "bg-gray-100 text-gray-700"
+                      statusClasses[user.status] || "bg-gray-100 text-gray-700"
                     }`}
                   >
-                    {student.status}
+                    {user.status}
                   </span>
                 </td>
               </tr>
