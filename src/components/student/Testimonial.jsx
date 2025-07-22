@@ -7,30 +7,31 @@ import { FaStar } from 'react-icons/fa';
 
 const testimonials = [
   {
-    name: 'Ronald Richards',
-    text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    name: 'Aryan Mehta',
+    text: 'Joining this course changed my NEET preparation journey. The video lectures are crystal clear and helped me build strong concepts in Physics and Biology.',
     img: 'https://randomuser.me/api/portraits/men/32.jpg',
-    rating: 4
-  },
-  {
-    name: 'Wade Warren',
-    text: 'Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident mollit anim id est laborum.',
-    img: 'https://randomuser.me/api/portraits/men/45.jpg',
     rating: 5
   },
   {
-    name: 'Jacob Jones',
-    text: 'Esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident in voluptate velit.',
-    img: 'https://randomuser.me/api/portraits/men/61.jpg',
+    name: 'Sneha Reddy',
+    text: 'The mock tests and practice problems were incredibly helpful. I scored 99.2 percentile in JEE Mains thanks to the structured guidance here.',
+    img: 'https://randomuser.me/api/portraits/women/68.jpg',
+    rating: 5
+  },
+  {
+    name: 'Rohan Kumar',
+    text: 'The daily assignments and doubt-solving sessions helped me stay on track. This course is perfect for serious NEET aspirants.',
+    img: 'https://randomuser.me/api/portraits/men/45.jpg',
     rating: 4
   },
   {
-    name: 'Jane Doe',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna.',
-    img: 'https://randomuser.me/api/portraits/women/68.jpg',
+    name: 'Priya Sharma',
+    text: 'I loved the clear teaching style and short revision videos. It saved me a lot of time while preparing for both NEET and board exams.',
+    img: 'https://randomuser.me/api/portraits/women/64.jpg',
     rating: 5
   }
 ];
+
 
 export default function Testimonial() {
   return (

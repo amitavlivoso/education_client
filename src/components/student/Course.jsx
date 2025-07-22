@@ -9,53 +9,49 @@ import course6 from "../../assets/course6.jpg";
 
 const courses = [
   {
-    title: "Organic Chemistry",
-    subtitle: "(Including All Subjects)",
+    title: "NEET Organic Chemistry Mastery",
+    subtitle: "(Includes All Chapters)",
     students: "5,957 Students",
     duration: "01h 49m",
     image: course1,
   },
   {
-    title: "Physics 2.0",
-    subtitle: "(Including All Subjects)",
-
+    title: "JEE Physics 2.0 Crash Course",
+    subtitle: "(Covers Class 11 & 12)",
     students: "4,120 Students",
     duration: "02h 10m",
     image: course2,
   },
   {
-    title: "Mathematics",
-    subtitle: "(Including All Subjects)",
-
+    title: "Advanced Mathematics for JEE",
+    subtitle: "(Includes All Topics)",
     students: "3,800 Students",
     duration: "01h 30m",
     image: course3,
   },
   {
-    title: "Physics",
-    subtitle: "(Including All Subjects)",
-
+    title: "Complete Physics for NEET",
+    subtitle: "(Chapter-wise Practice)",
     students: "5,957 Students",
     duration: "01h 49m",
     image: course4,
   },
   {
-    title: "Physics",
-    subtitle: "(Including All Subjects)",
-
+    title: "NCERT Biology Revision Course",
+    subtitle: "(Fast-track for NEET)",
     students: "5,957 Students",
     duration: "01h 49m",
     image: course5,
   },
   {
-    title: "Physics",
-    subtitle: "(Including All Subjects)",
-
+    title: "JEE Chemistry Quick Revision",
+    subtitle: "(Physical, Organic, Inorganic)",
     students: "5,957 Students",
     duration: "01h 49m",
     image: course6,
   },
 ];
+
 
 const Course = () => {
   return (

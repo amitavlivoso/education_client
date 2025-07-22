@@ -29,7 +29,7 @@ export default function Layout() {
       {/* Main Content */}
       <div className="flex flex-col flex-1 ">
         <Header onMenuClick={() => setIsSidebarOpen(true)} />
-        <main className="flex-1 bg-gray-50 overflow-y-auto p-4">
+        <main className="flex-1 bg-gray-50 overflow-y-auto">
           <Outlet />
         </main>
       </div>

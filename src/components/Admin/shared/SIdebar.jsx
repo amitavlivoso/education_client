@@ -195,7 +195,7 @@ export const studentSidebarItems = [
   {
     label: "Study Materials",
     icon: <FaBook />,
-    link: "/student/dashboard/studymaterial",
+    link: "/student/dashboard/studyCategory",
   },
   {
     label: "My Exams",
@@ -203,7 +203,7 @@ export const studentSidebarItems = [
     children: [
       {
         label: "Upcoming Exams",
-        link: "/student/dashboard/exam",
+        link: "/student/dashboard/examcategory",
         icon: <FaClock />,
       },
       {
