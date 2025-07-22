@@ -2,7 +2,7 @@ import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import course1 from "../../assets/jee.jpg";
 import course2 from "../../assets/neet.jpg";
-import course3 from "../../assets/course3.jpg";
+import course3 from "../../assets/cbse.jpg";
 import course4 from "../../assets/course4.jpg";
 import course5 from "../../assets/course5.jpg";
 import course6 from "../../assets/course6.jpg";
@@ -24,12 +24,11 @@ const courses = [
     image: course2,
   },
   {
-    title: "CBSE 10th Term-1 Complete PDFs",
+    title: "CBSE 10th Complete PDFs",
     subtitle: "Science, Maths & English Notes",
     students: "7,860 Reads",
     duration: "200+ Pages",
-    image:
-      "https://img.freepik.com/free-vector/hand-drawn-back-school-background_23-2149464864.jpg",
+    image: course3,
   },
 ];
 
