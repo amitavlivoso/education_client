@@ -12,7 +12,7 @@ const StudyCategory = () => {
   ];
 
   const handleClick = (type) => {
-    navigate(`student/dashboard/studymaterial/${type}`);
+    navigate(`studymaterial/${type}`);
   };
 
   return (
