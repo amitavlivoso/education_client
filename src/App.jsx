@@ -43,9 +43,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About/>} />
-            <Route path="blogdetails" element={<Blogdetails/>} />
-            <Route path="blog" element={<Blog/>} />
+            <Route path="about" element={<About />} />
+            <Route path="blogdetails" element={<Blogdetails />} />
+            <Route path="blog" element={<Blog />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<TeacherSignUp />} />
           </Route>
@@ -59,8 +59,8 @@ function App() {
             <Route path="examcategory" element={<Examcategory />} />
             <Route path="exam" element={<Exam />} />
             <Route path="thankyou" element={<Thankyou />} />
-            <Route path="/studymaterial/:type" element={<Studymaterial />} />
-             <Route path="studyCategory" element={<StudyCategory />} />
+            <Route path="studymaterial/:type" element={<Studymaterial />} />
+            <Route path="studyCategory" element={<StudyCategory />} />
             <Route path="result" element={<Result />} />
             <Route path="assignment" element={<Assignment />} />
 
