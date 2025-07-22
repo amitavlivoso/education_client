@@ -8,15 +8,10 @@ import DeActivated from "./pages/Admin/Deactivated";
 import DashboardSwitch from "./pages/Dashboard";
 import Layout from "./components/student/shared/Layout";
 import Home from "./pages/student/Home";
-
 import StudentSignup from "./pages/student/StudentSignup";
-
 import Exam from "./pages/student/Dashboard/Exam";
-
 import Thankyou from "./pages/student/Dashboard/Thankyou";
-
 import Studymaterial from "./pages/student/Dashboard/Studymaterial";
-
 import Result from "./pages/student/Dashboard/Result";
 
 import Assignment from "./pages/student/Dashboard/Assignment";
