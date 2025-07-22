@@ -7,7 +7,7 @@ const Examcategory = () => {
   const results = [
     {
       subject: "JEE",
-      time: "3 hr",
+      time: "2 hr",
 
     },
     {
