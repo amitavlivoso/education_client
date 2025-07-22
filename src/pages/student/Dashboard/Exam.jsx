@@ -65,7 +65,7 @@ const examData = {
 
 const Exam = () => {
   const [answers, setAnswers] = useState({});
-  const [timeLeft, setTimeLeft] = useState(600); // 10 mins
+  const [timeLeft, setTimeLeft] = useState(7200); 
   const navigate = useNavigate();
 
   // Countdown Timer
