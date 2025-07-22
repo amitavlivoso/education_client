@@ -112,7 +112,7 @@ const Login = () => {
 
             <div className="mt-4 flex justify-center">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                src="https://developers.google.com/identity/images/g-logo.png"
                 alt="Google"
                 className="w-6 h-6"
               />
