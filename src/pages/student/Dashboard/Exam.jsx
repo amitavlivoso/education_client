@@ -106,7 +106,7 @@ const Exam = () => {
     <div className="min-h-screen  py-10 px-4 md:px-10 relative">
       {/* Timer */}
       <div className="absolute top-4 right-4 bg-white px-4 py-2 rounded-full shadow-lg text-blue-600 font-semibold text-sm">
-        ⏰ Time Left: {formatTime()}
+        ⏰ Time Left: {formatTime()} Min
       </div>
 
       <div className="max-w-5xl mx-auto bg-white p-8 rounded-xl shadow-lg mt-5">
