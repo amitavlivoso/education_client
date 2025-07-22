@@ -1,59 +1,40 @@
 import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import course1 from "../../assets/course1.jpg";
-import course2 from "../../assets/course2.jpg";
+import course1 from "../../assets/jee.jpg";
+import course2 from "../../assets/neet.jpg";
 import course3 from "../../assets/course3.jpg";
 import course4 from "../../assets/course4.jpg";
 import course5 from "../../assets/course5.jpg";
 import course6 from "../../assets/course6.jpg";
+import { useNavigate } from "react-router-dom";
 
 const courses = [
   {
-    title: "NEET Organic Chemistry Mastery",
-    subtitle: "(Includes All Chapters)",
-    students: "5,957 Students",
-    duration: "01h 49m",
+    title: "JEE PDF Study Pack",
+    subtitle: "Complete Notes + Practice Sheets",
+    students: "6,520 Read",
+    duration: "240+ Pages",
     image: course1,
   },
   {
-    title: "JEE Physics 2.0 Crash Course",
-    subtitle: "(Covers Class 11 & 12)",
-    students: "4,120 Students",
-    duration: "02h 10m",
+    title: "NEET Biology Revision PDFs",
+    subtitle: "NCERT Highlighted Notes + PYQs",
+    students: "5,145 Reads",
+    duration: "180+ Pages",
     image: course2,
   },
   {
-    title: "Advanced Mathematics for JEE",
-    subtitle: "(Includes All Topics)",
-    students: "3,800 Students",
-    duration: "01h 30m",
-    image: course3,
-  },
-  {
-    title: "Complete Physics for NEET",
-    subtitle: "(Chapter-wise Practice)",
-    students: "5,957 Students",
-    duration: "01h 49m",
-    image: course4,
-  },
-  {
-    title: "NCERT Biology Revision Course",
-    subtitle: "(Fast-track for NEET)",
-    students: "5,957 Students",
-    duration: "01h 49m",
-    image: course5,
-  },
-  {
-    title: "JEE Chemistry Quick Revision",
-    subtitle: "(Physical, Organic, Inorganic)",
-    students: "5,957 Students",
-    duration: "01h 49m",
-    image: course6,
+    title: "CBSE 10th Term-1 Complete PDFs",
+    subtitle: "Science, Maths & English Notes",
+    students: "7,860 Reads",
+    duration: "200+ Pages",
+    image:
+      "https://img.freepik.com/free-vector/hand-drawn-back-school-background_23-2149464864.jpg",
   },
 ];
 
-
 const Course = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-16 px-4 bg-white">
       <div className="text-center mb-12">
@@ -69,7 +50,8 @@ const Course = () => {
         {courses.map((course, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow hover:shadow-lg transition duration-300"
+            className="bg-white cursor-pointer rounded-xl shadow hover:shadow-lg transition duration-300"
+            onClick={() => navigate("/login")}
           >
             <img
               src={course.image}
