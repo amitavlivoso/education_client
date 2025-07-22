@@ -13,14 +13,14 @@ const Login = () => {
     const users = localStorage.getItem("users");
     if (!users) {
       const dummyUsers = [
-        { email: "admin@example.com", password: "admin123", role: "admin" },
+        { email: "admin@livosotech.com", password: "admin123", role: "admin" },
         {
-          email: "student1@example.com",
+          email: "student@livosotech.com",
           password: "student123",
           role: "student",
         },
         {
-          email: "teacher@example.com",
+          email: "teacher@livosotech.com",
           password: "teacher123",
           role: "teacher",
         },
