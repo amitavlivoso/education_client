@@ -59,7 +59,7 @@ function App() {
             <Route path="examcategory" element={<Examcategory />} />
             <Route path="exam" element={<Exam />} />
             <Route path="thankyou" element={<Thankyou />} />
-            <Route path="studymaterial" element={<Studymaterial />} />
+            <Route path="/studymaterial/:type" element={<Studymaterial />} />
              <Route path="studyCategory" element={<StudyCategory />} />
             <Route path="result" element={<Result />} />
             <Route path="assignment" element={<Assignment />} />

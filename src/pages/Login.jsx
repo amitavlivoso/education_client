@@ -67,7 +67,7 @@ const Login = () => {
 
         <div className="p-6 md:p-8 bg-gradient-to-tr from-white to-blue-50">
           <h2 className="text-2xl font-bold text-indigo-700 text-center mb-4">
-            Student LogIn
+            LogIn
           </h2>
 
           <form className="space-y-4" onSubmit={handleLogin}>
