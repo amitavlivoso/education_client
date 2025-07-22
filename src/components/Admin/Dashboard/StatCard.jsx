@@ -10,7 +10,7 @@ export default function StatCard({
   chart,
 }) {
   return (
-    <div className="relative rounded-lg shadow-xl overflow-hidden w-full md:w-1/2 lg:w-60 p-2 bg-white transition-all ">
+    <div className="relative  max-w-[300px] rounded-lg shadow-xl overflow-hidden w-full md:w-1/2 lg:w-60 p-2 bg-white transition-all ">
       {/* Subtle Background Image Overlay */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"

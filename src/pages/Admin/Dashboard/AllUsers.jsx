@@ -38,56 +38,60 @@ export default function AllUsersTable() {
   };
 
   const navigate = useNavigate();
+
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6">
+    <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-full max-w-screen-xl mx-auto">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6 pb-3">
-        <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+        <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           All Users
         </h3>
         <button
-          className="text-sm px-3 py-1 cursor-pointer rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition"
+          className="text-xs sm:text-sm px-3 py-1 cursor-pointer rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition"
           onClick={() => navigate("/admin/dashboard/user")}
         >
           View All
         </button>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="min-w-full text-sm text-left">
-          <thead className="bg-gradient-to-r bg-blue-600  text-white ">
-            <tr>
-              <th className="px-4 py-3 font-semibold">Name</th>
-              <th className="px-4 py-3 font-semibold">Email</th>
-              <th className="px-4 py-3 font-semibold">Role</th>
-              <th className="px-4 py-3 font-semibold">Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {dummyUsers.map((user) => (
-              <tr
-                key={user.id}
-                className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition"
-              >
-                <td className="px-4 py-3 font-medium text-gray-800">
-                  {user.name}
-                </td>
-                <td className="px-4 py-3 text-gray-600">{user.email}</td>
-                <td className="px-4 py-3 text-gray-700">{user.role}</td>
-                <td className="px-4 py-3">
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
-                      statusClasses[user.status] || "bg-gray-100 text-gray-700"
-                    }`}
-                  >
-                    {user.status}
-                  </span>
-                </td>
+      {/* Table Container */}
+      <div className="w-full overflow-x-auto">
+        {/* Responsive inner container */}
+        <div className="min-w-[600px] sm:min-w-full sm:max-w-full max-w-[300px]">
+          <table className="w-full text-sm text-left border-collapse">
+            <thead className="bg-blue-600 text-white">
+              <tr>
+                <th className="px-4 py-3 font-semibold whitespace-nowrap">Name</th>
+                <th className="px-4 py-3 font-semibold whitespace-nowrap">Email</th>
+                <th className="px-4 py-3 font-semibold whitespace-nowrap">Role</th>
+                <th className="px-4 py-3 font-semibold whitespace-nowrap">Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100 bg-white">
+              {dummyUsers.map((user) => (
+                <tr
+                  key={user.id}
+                  className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition"
+                >
+                  <td className="px-4 py-3 font-medium text-gray-800 whitespace-nowrap">{user.name}</td>
+                  <td className="px-4 py-3 text-gray-600 whitespace-nowrap">
+                    <span className="block max-w-[180px] truncate">{user.email}</span>
+                  </td>
+                  <td className="px-4 py-3 text-gray-700 whitespace-nowrap">{user.role}</td>
+                  <td className="px-4 py-3 whitespace-nowrap">
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
+                        statusClasses[user.status] || "bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      {user.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

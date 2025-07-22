@@ -58,9 +58,10 @@ export default function Dashboard() {
       <div className="mt-10">
         <StudentStatsCard />
       </div>
-      <div className="mt-10">
+      <div className="mt-10 hidden md:block">
         <AllUsersTable />
       </div>
+
       <div className="mt-10">
         <DashboardCards />
       </div>

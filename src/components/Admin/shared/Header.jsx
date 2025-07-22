@@ -30,15 +30,15 @@ export default function Header({ onMenuClick }) {
     <header className="w-full bg-white shadow-xl px-4 py-3">
       <div className="max-w-7xl mx-auto flex md:justify-between items-center">
         {/* Left Side */}
-        <div className="flex items-center md:space-x-3 space-x-0">
+        <div className="flex  items-center md:space-x-3 space-x-0">
           <button
-            className="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none"
+            className="md:hidden sm:mr-2 text-gray-600 hover:text-blue-600 focus:outline-none"
             onClick={onMenuClick}
           >
             <FaBars className="text-xl" />
           </button>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
-            <div className="text-lg sm:text-xl font-semibold text-blue-600">
+          <div className="flex  flex-col sm:flex-row sm:items-center sm:space-x-2">
+            <div className="text-lg  font-semibold text-blue-600">
               EduAdmin Management
             </div>
             <span className="text-gray-400 text-sm hidden sm:inline">

@@ -38,11 +38,14 @@ export default function StudentStatsCard() {
   ];
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow-xl w-full">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold">Student Statistics Overview</h3>
+    <div className="bg-white rounded-lg p-4 sm:p-6 shadow-xl w-full max-w-screen-xl mx-auto">
+      {/* Header: Title + Dropdown */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+        <h3 className="text-base sm:text-lg font-semibold">
+          Student Statistics Overview
+        </h3>
         <select
-          className="border rounded px-2 py-1 text-sm"
+          className="border rounded px-2 py-1 text-sm focus:outline-none"
           value={range}
           onChange={(e) => setRange(e.target.value)}
         >
@@ -51,20 +54,30 @@ export default function StudentStatsCard() {
           <option>Monthly</option>
         </select>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+
+      {/* Stat Cards */}
+      <div className="flex flex-wrap justify-center md:grid md:grid-cols-4 gap-4 mb-4">
         {stats.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center p-3 rounded bg-gray-50 shadow-sm"
+            className="w-full max-w-xs flex items-center p-4 rounded bg-gray-50 shadow-sm hover:shadow-md transition-all"
           >
-            <div className={`${item.color} mr-3 text-lg`}>{item.icon}</div>
+            <div className={`${item.color} mr-3 text-xl sm:text-2xl`}>
+              {item.icon}
+            </div>
             <div>
-              <div className="text-xs text-gray-500">{item.label}</div>
-              <div className="font-semibold text-gray-800">{item.value}</div>
+              <div className="text-xs sm:text-sm text-gray-500">
+                {item.label}
+              </div>
+              <div className="font-semibold text-sm sm:text-base text-gray-800">
+                {item.value}
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Chart */}
       <StudentStatsChart range={range} />
     </div>
   );

@@ -43,8 +43,6 @@ export default function AllUsersPage() {
     setUsers((prev) => prev.filter((u) => u.id !== id));
     setShowModal(false);
     setUserToDelete(null);
-    // 🔗 Replace with your actual API call
-    console.log("Deleted user ID:", id);
   };
 
   const openDeleteModal = (user) => {
@@ -58,28 +56,32 @@ export default function AllUsersPage() {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">All Users</h1>
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
+          All Users
+        </h1>
         <button
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg cursor-pointer hover:bg-blue-700 transition"
+          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           onClick={() => navigate("/admin/dashboard/add-user")}
         >
           <FaUserPlus />
-          Add New
+          <span className="hidden sm:inline">Add New</span>
         </button>
       </div>
 
-      <div className="overflow-x-auto shadow rounded-lg bg-white">
+      {/* Responsive Table */}
+      <div className="w-full overflow-x-auto bg-white shadow-md rounded-lg">
         <table className="min-w-full text-sm text-gray-700">
-          <thead className="bg-blue-600 text-left uppercase text-xs font-semibold text-white">
+          <thead className="bg-blue-600 text-white text-xs uppercase">
             <tr>
-              <th className="px-6 py-3">#</th>
-              <th className="px-6 py-3">Name</th>
-              <th className="px-6 py-3">Email</th>
-              <th className="px-6 py-3">Role</th>
-              <th className="px-6 py-3">Status</th>
-              <th className="px-6 py-3">Actions</th>
+              <th className="px-4 sm:px-6 py-3 text-left">#</th>
+              <th className="px-4 sm:px-6 py-3 text-left">Name</th>
+              <th className="px-4 sm:px-6 py-3 text-left">Email</th>
+              <th className="px-4 sm:px-6 py-3 text-left">Role</th>
+              <th className="px-4 sm:px-6 py-3 text-left">Status</th>
+              <th className="px-4 sm:px-6 py-3 text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -88,11 +90,11 @@ export default function AllUsersPage() {
                 key={user.id}
                 className="border-t hover:bg-gray-50 transition-all"
               >
-                <td className="px-6 py-4 font-medium">{index + 1}</td>
-                <td className="px-6 py-4">{user.name}</td>
-                <td className="px-6 py-4">{user.email}</td>
-                <td className="px-6 py-4">{user.role}</td>
-                <td className="px-6 py-4">
+                <td className="px-4 sm:px-6 py-4 font-medium">{index + 1}</td>
+                <td className="px-4 sm:px-6 py-4">{user.name}</td>
+                <td className="px-4 sm:px-6 py-4">{user.email}</td>
+                <td className="px-4 sm:px-6 py-4">{user.role}</td>
+                <td className="px-4 sm:px-6 py-4">
                   <span
                     className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
                       user.status === "Active"
@@ -105,7 +107,7 @@ export default function AllUsersPage() {
                     {user.status}
                   </span>
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-4 sm:px-6 py-4">
                   <div className="flex gap-3">
                     <button
                       className="text-blue-600 hover:text-blue-800 transition"
@@ -118,7 +120,7 @@ export default function AllUsersPage() {
                       <FaEdit />
                     </button>
                     <button
-                      className="text-red-600 hover:text-red-800 transition cursor-pointer"
+                      className="text-red-600 hover:text-red-800 transition"
                       onClick={() => openDeleteModal(user)}
                     >
                       <FaTrash />
@@ -141,7 +143,7 @@ export default function AllUsersPage() {
       {/* Delete Confirmation Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm sm:max-w-md">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">
               Confirm Deletion
             </h2>
@@ -161,7 +163,7 @@ export default function AllUsersPage() {
               </button>
               <button
                 onClick={() => handleDelete(userToDelete.id)}
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 cursor-pointer"
+                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
               >
                 Delete
               </button>
