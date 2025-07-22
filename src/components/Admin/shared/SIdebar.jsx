@@ -55,12 +55,12 @@ const adminsidebarItems = [
     children: [
       {
         label: "Study Materials",
-        link: "/teacher/dashboard/all-notes",
+        link: "/admin/dashboard/all-notes",
         icon: <FaBook />,
       },
       {
         label: "Upload New Material",
-        link: "/teacher/dashboard/upload-pdf",
+        link: "/admin/dashboard/upload-pdf",
         icon: <FaCloudUploadAlt />,
       },
     ],
@@ -71,12 +71,12 @@ const adminsidebarItems = [
     children: [
       {
         label: "Create Exam",
-        link: "/teacher/dashboard/exam-upload",
+        link: "/admin/dashboard/exam-upload",
         icon: <FaLayerGroup />,
       },
       {
         label: "All Exams",
-        link: "/teacher/dashboard/all-exams",
+        link: "/admin/dashboard/all-exams",
         icon: <FaFileAlt />,
       },
     ],
@@ -87,7 +87,7 @@ const adminsidebarItems = [
     children: [
       {
         label: "Student Reports",
-        link: "/teacher/dashboard/student-performance-report",
+        link: "/admin/dashboard/student-performance-report",
         icon: <FaChartBar />,
       },
     ],
