@@ -13,11 +13,8 @@ import Blog from "./pages/student/Blog";
 import Blogdetails from "./pages/student/Blogdetails";
 
 import StudentSignup from "./pages/student/StudentSignup";
-
 import Exam from "./pages/student/Dashboard/Exam";
-
 import Thankyou from "./pages/student/Dashboard/Thankyou";
-
 import Studymaterial from "./pages/student/Dashboard/Studymaterial";
 import StudyCategory from "./pages/student/Dashboard/StudyCategory";
 import Examcategory from "./pages/student/Dashboard/Examcategory";
