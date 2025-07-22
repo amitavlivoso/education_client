@@ -9,7 +9,7 @@ export default function Layout() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="flex-1 p-4 mt-18">
+      <main className="flex-1  mt-18">
         <Outlet />
       </main>
 

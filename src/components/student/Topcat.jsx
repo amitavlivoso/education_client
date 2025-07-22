@@ -29,14 +29,12 @@ const Topcat = () => {
 
       {/* WHY LEARN SECTION */}
       <div className="max-w-6xl mx-auto text-center px-4 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Why <span className="text-green-300">learn</span> with our courses?
-        </h2>
-        <p className="text-white/90 mb-12 max-w-2xl mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna.
-        </p>
-
+         <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why <span className="text-green-300">learn</span> with our courses?
+            </h2>
+            <p className="text-white/90 mb-12 max-w-2xl mx-auto">
+              Our courses are expertly designed to align with the latest NEET and JEE syllabus, offering clear video lessons, topic-wise tests, and proven strategies. Learn from India’s top educators and maximize your score with confidence.
+            </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="flex flex-col items-center text-center space-y-3">
             <FaBookOpen className="text-4xl" />

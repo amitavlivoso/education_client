@@ -37,46 +37,60 @@ const StudentDashboard = () => {
   ];
 
   return (
-    <div className="p-6  min-h-screen space-y-8">
-      <h1 className="text-3xl font-bold text-indigo-700 mb-6">🎓 Student Dashboard</h1>
+    <div className="w-full  sm:px-2 lg:px-8 py-6 space-y-10">
+      <h1 className="text-2xl sm:text-3xl font-bold text-indigo-700 text-center">
+        🎓 Student Dashboard
+      </h1>
 
       {/* Top Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="p-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded-xl shadow-md flex items-center gap-4">
-          <FaBookOpen className="text-3xl" />
-          <div>
-            <p className="text-sm">Subjects</p>
-            <h3 className="text-xl font-bold">5</h3>
-          </div>
-        </div>
-        <div className="p-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl shadow-md flex items-center gap-4">
-          <FaClipboardCheck className="text-3xl" />
-          <div>
-            <p className="text-sm">Assignments</p>
-            <h3 className="text-xl font-bold">12</h3>
-          </div>
-        </div>
-        <div className="p-4 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-xl shadow-md flex items-center gap-4">
-          <FaChartLine className="text-3xl" />
-          <div>
-            <p className="text-sm">Average Score</p>
-            <h3 className="text-xl font-bold">82%</h3>
-          </div>
-        </div>
-        <div className="p-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white rounded-xl shadow-md flex items-center gap-4">
-          <FaUserGraduate className="text-3xl" />
-          <div>
-            <p className="text-sm">Rank</p>
-            <h3 className="text-xl font-bold">#4</h3>
-          </div>
-        </div>
+     <div className="">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-2">
+    
+    {/* Card 1 */}
+    <div className="max-w-xs w-full p-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded-xl shadow-md flex items-center gap-4"  style={{ maxWidth: "300px" }}>
+      <FaBookOpen className="text-2xl sm:text-3xl" />
+      <div>
+        <p className="text-sm">Subjects</p>
+        <h3 className="text-lg sm:text-xl font-bold">5</h3>
       </div>
+    </div>
+
+    {/* Card 2 */}
+    <div className="max-w-xs w-full  p-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl shadow-md flex items-center gap-4"  style={{ maxWidth: "300px" }}>
+      <FaClipboardCheck className="text-2xl sm:text-3xl" />
+      <div>
+        <p className="text-sm">Assignments</p>
+        <h3 className="text-lg sm:text-xl font-bold">12</h3>
+      </div>
+    </div>
+
+    {/* Card 3 */}
+    <div className="max-w-xs w-full  p-4 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-xl shadow-md flex items-center gap-4"  style={{ maxWidth: "300px" }}>
+      <FaChartLine className="text-2xl sm:text-3xl" />
+      <div>
+        <p className="text-sm">Average Score</p>
+        <h3 className="text-lg sm:text-xl font-bold">82%</h3>
+      </div>
+    </div>
+
+    {/* Card 4 */}
+    <div className="max-w-xs w-full  p-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white rounded-xl shadow-md flex items-center gap-4"  style={{ maxWidth: "300px" }}>
+      <FaUserGraduate className="text-2xl sm:text-3xl" />
+      <div>
+        <p className="text-sm">Rank</p>
+        <h3 className="text-lg sm:text-xl font-bold">#4</h3>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2">
         {/* Bar Chart */}
         <div className="bg-white rounded-xl shadow p-4">
-          <h2 className="text-lg font-semibold text-gray-700 mb-2">Subject-wise Performance</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-gray-700 mb-2">Subject-wise Performance</h2>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={barData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -90,7 +104,7 @@ const StudentDashboard = () => {
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl shadow p-4">
-          <h2 className="text-lg font-semibold text-gray-700 mb-2">Answer Stats</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-gray-700 mb-2">Answer Stats</h2>
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
               <Pie
@@ -112,7 +126,7 @@ const StudentDashboard = () => {
 
         {/* Line Chart */}
         <div className="bg-white rounded-xl shadow p-4">
-          <h2 className="text-lg font-semibold text-gray-700 mb-2">Monthly Progress</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-gray-700 mb-2">Monthly Progress</h2>
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={lineData}>
               <XAxis dataKey="name" />
@@ -126,15 +140,15 @@ const StudentDashboard = () => {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow p-6">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Subject Report</h2>
+      <div className="bg-white rounded-xl shadow p-4 sm:p-6 max-w-7xl mx-auto">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mb-4">Subject Report</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left text-gray-600">
             <thead className="bg-indigo-100 text-indigo-700">
               <tr>
                 <th className="py-2 px-4">Subject</th>
-                <th className="py-2 px-4">Obtained Marks</th>
-                <th className="py-2 px-4">Total Marks</th>
+                <th className="py-2 px-4">Obtained</th>
+                <th className="py-2 px-4">Total</th>
                 <th className="py-2 px-4">Status</th>
               </tr>
             </thead>

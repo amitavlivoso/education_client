@@ -4,20 +4,19 @@ import heroImg2 from "../../assets/heroImg2.png";
 
 const HeroSection = () => {
   return (
-    <section className="bg-gradient-to-br from-green-50 to-white py-20">
-      <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center gap-12 pt-20">
+    <section className="bg-gradient-to-br from-green-50 to-white lg:py-20">
+      <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
         
         {/* Left Side */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <p className="text-sm tracking-widest text-gray-500 uppercase mb-2">
-            Successful Coaches Are Visionaries
+        <div className="w-full lg:w-1/2 text-center lg:text-left ">
+          <p className="text-sm tracking-widest text-gray-500 uppercase mb-2 mt-4 sm:mt-0">
+             Empowering Future Doctors & Engineers
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-snug">
             Take student <br /> experience to the next level
           </h1>
           <p className="text-gray-600 mb-6 max-w-lg">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+             India's most trusted platform for NEET & JEE preparation. Expert faculty, curated materials, live sessions, and test series to help students succeed.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
