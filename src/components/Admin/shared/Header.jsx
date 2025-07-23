@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // <-- ADD THIS
+import { useNavigate,Link } from "react-router-dom"; // <-- ADD THIS
 import { FaUserCircle, FaBell, FaChevronDown, FaBars } from "react-icons/fa";
 
 export default function Header({ onMenuClick }) {
@@ -73,9 +73,12 @@ export default function Header({ onMenuClick }) {
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-100 rounded-lg shadow-lg z-50">
                 <ul className="py-1 text-sm text-gray-700">
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                    Profile
-                  </li>
+                  <Link to="profile">
+                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                      Profile
+                    </li>
+                  </Link>
+
                   <li
                     onClick={handleLogout}
                     className="border-t border-gray-200 px-4 py-2 hover:bg-gray-100 cursor-pointer"

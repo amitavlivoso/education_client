@@ -20,6 +20,8 @@ import {
   FaBellSlash,
   FaCog,
   FaUserShield,
+  FaRobot,
+
 } from "react-icons/fa";
 
 const adminsidebarItems = [
@@ -215,9 +217,15 @@ export const studentSidebarItems = [
   },
   {
     label: "Result",
-    icon: <FaChartBar />,
+    icon: <FaFileAlt  />,
     link: "/student/dashboard/result",
   },
+  {
+    label: "AI Assistant",
+    icon: <FaRobot />,
+    link: "/student/dashboard/aipage",
+  },
+  
   {
     label: "Notifications",
     icon: <FaBell />,

@@ -18,7 +18,8 @@ import Thankyou from "./pages/student/Dashboard/Thankyou";
 import Studymaterial from "./pages/student/Dashboard/Studymaterial";
 import StudyCategory from "./pages/student/Dashboard/StudyCategory";
 import Examcategory from "./pages/student/Dashboard/Examcategory";
-
+import Profile from "./pages/student/Dashboard/Profile";
+import Aipage from "./pages/student/Dashboard/Aipage";
 import Result from "./pages/student/Dashboard/Result";
 
 import Assignment from "./pages/student/Dashboard/Assignment";
@@ -63,6 +64,8 @@ function App() {
             <Route path="studyCategory" element={<StudyCategory />} />
             <Route path="result" element={<Result />} />
             <Route path="assignment" element={<Assignment />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="aipage" element={<Aipage />} />
 
             {/* Teacher */}
 

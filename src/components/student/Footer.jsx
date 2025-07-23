@@ -20,7 +20,7 @@ export default function Footer() {
             EduMove
           </div>
           <p className="text-sm text-gray-100">
-            Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+            India's most trusted platform for NEET & JEE preparation. Expert faculty, curated materials, live sessions, and test series to help students succeed.
           </p>
         </div>
 
@@ -28,10 +28,10 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm text-gray-200">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Course</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="blog">Blog</a></li>
+           
           </ul>
         </div>
 
