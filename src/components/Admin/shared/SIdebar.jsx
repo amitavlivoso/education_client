@@ -225,7 +225,11 @@ export const studentSidebarItems = [
     icon: <FaRobot />,
     link: "/student/dashboard/aipage",
   },
-  
+   {
+    label: "Assignment",
+    icon: <FaBell />,
+    link: "/student/assignment",
+  },
   {
     label: "Notifications",
     icon: <FaBell />,

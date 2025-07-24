@@ -21,7 +21,7 @@ import Examcategory from "./pages/student/Dashboard/Examcategory";
 import Profile from "./pages/student/Dashboard/Profile";
 import Aipage from "./pages/student/Dashboard/Aipage";
 import Result from "./pages/student/Dashboard/Result";
-
+import Course from "./pages/student/Dashboard/Course";
 import Assignment from "./pages/student/Dashboard/Assignment";
 
 import TeacherSignUp from "./components/Teacher/TeacherSignUp";
@@ -65,7 +65,8 @@ function App() {
             <Route path="result" element={<Result />} />
             <Route path="assignment" element={<Assignment />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="aipage" element={<Aipage />} />
+            <Route path="course" element={<Course />} />
+
 
             {/* Teacher */}
 
