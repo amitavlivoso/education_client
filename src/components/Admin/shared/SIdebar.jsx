@@ -195,6 +195,11 @@ export const studentSidebarItems = [
     link: "/student/dashboard",
   },
   {
+    label: "Course",
+    icon: <FaTachometerAlt />,
+    link: "/student/dashboard/course",
+  },
+  {
     label: "Study Materials",
     icon: <FaBook />,
     link: "/student/dashboard/studyCategory",
@@ -228,7 +233,7 @@ export const studentSidebarItems = [
    {
     label: "Assignment",
     icon: <FaBell />,
-    link: "/student/assignment",
+    link: "/student/dashboard/assignment",
   },
   {
     label: "Notifications",

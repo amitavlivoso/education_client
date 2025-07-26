@@ -64,6 +64,7 @@ function App() {
             <Route path="studyCategory" element={<StudyCategory />} />
             <Route path="result" element={<Result />} />
             <Route path="assignment" element={<Assignment />} />
+            <Route path="aipage" element={<Aipage />} />
             <Route path="profile" element={<Profile />} />
             <Route path="course" element={<Course />} />
 

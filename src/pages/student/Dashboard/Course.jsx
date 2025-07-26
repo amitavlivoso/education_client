@@ -1,44 +1,66 @@
 import React from "react";
-import { FaEye } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
+import course1 from "../../../assets/jee.jpg";
+import course2 from "../../../assets/neet.jpg";
+import course3 from "../../../assets/cbse.jpg";
 import { useNavigate } from "react-router-dom";
+
+const courses = [
+  {
+    title: "JEE PDF Study Pack",
+    subtitle: "Complete Notes + Practice Sheets",
+    students: "6,520 Read",
+    duration: "240+ Pages",
+    image: course1,
+  },
+  {
+    title: "NEET Biology Revision PDFs",
+    subtitle: "NCERT Highlighted Notes + PYQs",
+    students: "5,145 Reads",
+    duration: "180+ Pages",
+    image: course2,
+  },
+  {
+    title: "CBSE 10th Complete PDFs",
+    subtitle: "Science, Maths & English Notes",
+    students: "7,860 Reads",
+    duration: "200+ Pages",
+    image: course3,
+  },
+];
 
 const Course = () => {
   const navigate = useNavigate();
-
-  const materials = [
-    { type: "JEE" },
-    { type: "NEET" },
-    { type: "10th CBSE" },
-  ];
-
-  const handleClick = (type) => {
-    navigate(`/student/dashboard/studymaterial/${type}`);
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-10">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-blue-800">Study Materials</h2>
-        <p className="text-gray-500 mt-2">Explore materials for all types and chapters</p>
-      </div>
+    <section className="py-16 px-4 bg-white">
+   
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {materials.map((item, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {courses.map((course, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-md p-5 border border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer"
-            onClick={() => handleClick(item.type)}
+            className="bg-white cursor-pointer rounded-xl shadow hover:shadow-lg transition duration-300"
+            onClick={() => navigate("/login")}
           >
-            <div className="flex justify-between items-start mb-3">
-              <div>
-                <h4 className="text-xl font-medium text-blue-600">{item.type}</h4>
+            <img
+              src={course.image}
+              alt={course.title}
+              className="w-full h-48 object-cover rounded-t-xl"
+            />
+            <div className="p-5">
+              <div className="flex justify-between text-xs text-gray-500 mb-2">
+                <span>{course.students}</span>
+                <span>{course.duration}</span>
               </div>
-              <FaEye size={20} className="text-blue-500" />
+              <h3 className="text-lg font-semibold text-gray-800">
+                {course.title}
+              </h3>
+              <p className="text-sm text-gray-500">{course.subtitle}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
