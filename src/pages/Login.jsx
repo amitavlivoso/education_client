@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { login } from "../services/service";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -8,50 +9,50 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  console.log("email:", email);
+  console.log("password:", password);
+
   // Dummy users injection
-  useEffect(() => {
-    const users = localStorage.getItem("users");
-    if (!users) {
-      const dummyUsers = [
-        { email: "admin@livosotech.com", password: "admin123", role: "admin" },
-        {
-          email: "student@livosotech.com",
-          password: "student123",
-          role: "student",
-        },
-        {
-          email: "teacher@livosotech.com",
-          password: "teacher123",
-          role: "teacher",
-        },
-      ];
-      localStorage.setItem("users", JSON.stringify(dummyUsers));
-    }
-  }, []);
+ 
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-    const foundUser = storedUsers.find(
-      (user) => user.email === email && user.password === password
-    );
-
-    if (foundUser) {
-      localStorage.setItem("currentUser", JSON.stringify(foundUser));
-
-      if (foundUser.role === "admin") {
-        window.location.href = "/admin/dashboard";
-      } else if (foundUser.role === "student") {
-        window.location.href = "/student/dashboard";
-      } else if (foundUser.role === "teacher") {
-        window.location.href = "/teacher/dashboard";
-      } else {
-        window.location.href = "/dashboard";
+    try{
+      // const responce=await fetch("http://localhost:8080/api/auth/login", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body:JSON.stringify({ email, password }),
+      // });
+      const payLoad={
+        email,password
       }
-    } else {
-      alert("Invalid email or password");
+      const response=await login(payLoad);
+      console.log("Login response:", response);
+      
+      if (response.data.success){
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("currentUser", JSON.stringify(response.data.user));
+        if (response.data.user.role === "admin") {
+          navigate("/admin/dashboard");
+        } else if (response.data.user.role === "student") {
+          navigate("/student/dashboard");
+        } else if (response.data.user.role === "teacher") {
+          navigate("/teacher/dashboard");
+        } else {
+          navigate("/dashboard");
+        }
+      }
+
+    }catch(error){
+      console.error("Login error:", error);
+      alert("An error occurred during login. Please try again.");
+      return;
+
     }
+
   };
 
   return (
