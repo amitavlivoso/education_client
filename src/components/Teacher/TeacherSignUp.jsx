@@ -441,7 +441,7 @@ export default function TeacherSignUp() {
             <p className="text-center text-gray-600 text-sm mt-6">
               Already have an account?{" "}
               <a
-                href="#"
+                href="/login"
                 className="text-indigo-600 hover:underline font-medium"
               >
                 Sign In

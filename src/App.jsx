@@ -36,6 +36,8 @@ import Uploadpdf from "./components/Teacher/ContentManage/Uploadpdf";
 
 import StudentPerformanceReport from "./components/Teacher/PerformanceReport/StudentReport";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import VerifyOtp from "./pages/VerifyOtp";
 
 function App() {
   return (
@@ -48,7 +50,9 @@ function App() {
             <Route path="blogdetails" element={<Blogdetails />} />
             <Route path="blog" element={<Blog />} />
             <Route path="login" element={<Login />} />
-            <Route path="signup" element={<TeacherSignUp />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="verify-otp" element={<VerifyOtp />} />
+            
           </Route>
           <Route path="/:role/dashboard" element={<RoleLayout />}>
             <Route index element={<DashboardSwitch />} />
