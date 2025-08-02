@@ -9,3 +9,8 @@ export function login(payLoad) {
   return axiosClient.post("/auth/login", payLoad);
 }
 
+export function createexam(payLoad) {
+  return axiosClient.post("/auth/createexam", payLoad);
+}
+
+

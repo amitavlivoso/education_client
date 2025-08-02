@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 export default function ExamUpload() {
@@ -19,7 +20,7 @@ export default function ExamUpload() {
   const [estimatedTime, setEstimatedTime] = useState("");
   const [questionsAdded, setQuestionsAdded] = useState(0);
 
-  const handleAddQuestion = () => {
+  const handleAddQuestion =async () => {
     if (
       !questionText ||
       options.some((opt) => opt === "") ||
@@ -38,9 +39,6 @@ export default function ExamUpload() {
       question: questionText,
       options,
       answer,
-      subject: selectedSubject,
-      chapter: selectedChapter,
-      estimatedTime
     };
 
     const updatedQuestions = [...allQuestions, newQ];
@@ -53,8 +51,32 @@ export default function ExamUpload() {
     setAnswer("");
 
     if (updatedQuestions.length === parseInt(totalCount)) {
-      console.log("✅ Questions uploaded to DB:", updatedQuestions);
+      
+
+      const payload={
+        subjects: selectedSubject,
+        chapter: selectedChapter,
+        estimatedTime,
+        totalCount,
+        question:updatedQuestions
+      }
+
+     // console.log("✅ Questions uploaded to DB:", updatedQuestions);
       alert("All questions uploaded!");
+
+
+      console.log("Payload to send:", payload);
+
+
+      try{
+        const response=await axios.post("http://localhost:8080/api/teacher/createexam", payload);
+        
+        console.log("Response from server:", response.data);
+
+      }catch(error){
+        console.error("Error uploading questions:", error);
+        alert("Failed to upload questions. Please try again.");
+      }
 
       // Reset all
       setAllQuestions([]);
