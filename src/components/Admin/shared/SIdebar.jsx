@@ -168,8 +168,15 @@ export const teacherSidebarItems = [
         icon: <FaLayerGroup />,
       },
       {
-        label: "All Exams",
+        // label: "All Exams",
+        // link: "#/teacher/dashboard/all-exams",
+        label: "All Exams old",
         link: "#/teacher/dashboard/all-exams",
+        icon: <FaFileAlt />,
+      },
+      {
+        label: "All Exams",
+        link: "/teacher/dashboard/exam-list",
         icon: <FaFileAlt />,
       },
     ],
