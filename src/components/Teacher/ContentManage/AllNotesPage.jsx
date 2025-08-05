@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { getAllCourse } from "../../../services/service";
+import { getDecodedToken } from "../../../services/axiosClient";
 
 // Dummy data
 const initialNotes = [
@@ -32,7 +34,9 @@ export default function AllNotesPage() {
   const [editForm, setEditForm] = useState({ subject: "", chapter: "" });
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this note?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this note?"
+    );
     if (confirmDelete) {
       setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
     }
@@ -57,10 +61,24 @@ export default function AllNotesPage() {
     );
     setEditingNote(null);
   };
+  console.log(getDecodedToken());
+
+  // get all notes
+  useEffect(() => {
+    getAllCourse()
+      .then((res) => {
+        setNotes(res?.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">All Uploaded Notes</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">
+        All Uploaded Notes
+      </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {notes.map((note) => (
@@ -81,9 +99,15 @@ export default function AllNotesPage() {
               />
             </div>
 
-            <h2 className="text-xl font-semibold text-gray-800 mb-1">{note.subject}</h2>
-            <p className="text-sm text-gray-500 mb-2">📖 Chapter: {note.chapter}</p>
-            <p className="text-xs text-gray-400 mb-4">📅 Uploaded on: {note.uploadedAt}</p>
+            <h2 className="text-xl font-semibold text-gray-800 mb-1">
+              {note.subject}
+            </h2>
+            <p className="text-sm text-gray-500 mb-2">
+              📖 Chapter: {note.chapter}
+            </p>
+            <p className="text-xs text-gray-400 mb-4">
+              📅 Uploaded on: {note.uploadedAt}
+            </p>
 
             <div className="flex gap-4">
               <a

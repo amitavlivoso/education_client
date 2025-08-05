@@ -13,12 +13,11 @@ const Login = () => {
   console.log("password:", password);
 
   // Dummy users injection
- 
 
-  const handleLogin = async(e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    try{
+    try {
       // const responce=await fetch("http://localhost:8080/api/auth/login", {
       //   method: "POST",
       //   headers: {
@@ -26,33 +25,31 @@ const Login = () => {
       //   },
       //   body:JSON.stringify({ email, password }),
       // });
-      const payLoad={
-        email,password
-      }
-      const response=await login(payLoad);
+      const payLoad = {
+        email,
+        password,
+      };
+      const response = await login(payLoad);
       console.log("Login response:", response);
-      
-      if (response.data.success){
+
+      if (response.data.success) {
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("currentUser", JSON.stringify(response.data.user));
+        // localStorage.setItem("currentUser", JSON.stringify(response.data.user));
         if (response.data.user.role === "admin") {
           navigate("/admin/dashboard");
         } else if (response.data.user.role === "student") {
           navigate("/student/dashboard");
         } else if (response.data.user.role === "teacher") {
-          navigate("/teacher/dashboard");
+          navigate("/teacher/dashboard/student-performance-report");
         } else {
           navigate("/dashboard");
         }
       }
-
-    }catch(error){
+    } catch (error) {
       console.error("Login error:", error);
       alert("An error occurred during login. Please try again.");
       return;
-
     }
-
   };
 
   return (

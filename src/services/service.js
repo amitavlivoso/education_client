@@ -19,3 +19,7 @@ export function uploadDocs(payLoad) {
     },
   });
 }
+
+export function getAllCourse() {
+  return axiosClient.get("/course/getCourses");
+}

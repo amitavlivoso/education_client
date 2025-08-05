@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate,Link } from "react-router-dom"; // <-- ADD THIS
+import { useNavigate, Link } from "react-router-dom"; // <-- ADD THIS
 import { FaUserCircle, FaBell, FaChevronDown, FaBars } from "react-icons/fa";
+import { getUserName } from "../../../services/axiosClient";
 
 export default function Header({ onMenuClick }) {
   const navigate = useNavigate(); // <-- INIT NAVIGATE
@@ -65,7 +66,7 @@ export default function Header({ onMenuClick }) {
             >
               <FaUserCircle className="text-gray-600 text-xl" />
               <span className="text-sm text-gray-700 font-medium hidden sm:inline">
-                {role}
+                {getUserName()}
               </span>
               <FaChevronDown className="text-gray-400 text-xs hidden sm:inline" />
             </div>
