@@ -17,7 +17,7 @@ export default function ExamUpload() {
 
   const examTypes = ["10th", "JEE", "NEET"];
   const [selectedExamType, setSelectedExamType] = useState("");
-  console.log("Selected Exam Type:", selectedExamType);
+  //console.log("Selected Exam Type:", selectedExamType);
 
   const [allQuestions, setAllQuestions] = useState([]);
   const [questionText, setQuestionText] = useState("");

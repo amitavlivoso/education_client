@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
-import { getAllCourse } from "../../../services/service";
-import { getDecodedToken } from "../../../services/axiosClient";
+import axios from "axios";
+import { getDecodedToken, getUserId } from "../../../services/axiosClient";
 
-// Dummy data
-const initialNotes = [
-  {
-    id: "1",
-    subject: "Physics",
-    chapter: "Laws of Motion",
-    fileUrl: "https://example.com/pdf/physics-motion.pdf",
-    uploadedAt: "2025-07-20",
-  },
-  {
-    id: "2",
-    subject: "Chemistry",
-    chapter: "Chemical Reactions",
-    fileUrl: "https://example.com/pdf/chemistry-reactions.pdf",
-    uploadedAt: "2025-07-19",
-  },
-  {
-    id: "3",
-    subject: "Math",
-    chapter: "Trigonometry",
-    fileUrl: "https://example.com/pdf/math-trigonometry.pdf",
-    uploadedAt: "2025-07-18",
-  },
-];
+const examTypes = ["10th", "jee", "neet"];
 
 export default function AllNotesPage() {
-  const [notes, setNotes] = useState(initialNotes);
+  const [notes, setNotes] = useState([]);
+  console.log("notes",notes)
   const [editingNote, setEditingNote] = useState(null);
   const [editForm, setEditForm] = useState({ subject: "", chapter: "" });
+  const [selectedExamType, setSelectedExamType] = useState("");
+  const teacherId = getUserId();
+
+  // Fetch notes when exam type changes
+  useEffect(() => {
+    if (selectedExamType) {
+      axios
+        .get(
+          `http://localhost:8080/api/teacher/getStudyMaterialsByExamType/${selectedExamType}?teacherId=${teacherId}`
+        )
+        .then((res) => {
+          setNotes(res?.data.materials || []);
+        })
+        .catch((err) => {
+          console.log(err);
+          setNotes([]);
+        });
+    }
+  }, [selectedExamType, teacherId]);
 
   const handleDelete = (id) => {
     const confirmDelete = window.confirm(
@@ -61,18 +58,6 @@ export default function AllNotesPage() {
     );
     setEditingNote(null);
   };
-  console.log(getDecodedToken());
-
-  // get all notes
-  useEffect(() => {
-    getAllCourse()
-      .then((res) => {
-        setNotes(res?.data?.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
@@ -80,6 +65,24 @@ export default function AllNotesPage() {
         All Uploaded Notes
       </h1>
 
+      {/* Exam Type Selection */}
+      <div className="flex justify-center gap-8 mb-8">
+        {examTypes.map((type) => (
+          <button
+            key={type}
+            className={`px-8 py-6 rounded-xl font-semibold shadow-md border-2 transition ${
+              selectedExamType === type
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-300 hover:bg-blue-50"
+            }`}
+            onClick={() => setSelectedExamType(type)}
+          >
+            {type.toUpperCase()}
+          </button>
+        ))}
+      </div>
+
+      {/* Notes Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {notes.map((note) => (
           <div
