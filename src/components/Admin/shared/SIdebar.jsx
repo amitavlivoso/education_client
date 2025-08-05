@@ -21,14 +21,13 @@ import {
   FaCog,
   FaUserShield,
   FaRobot,
-
 } from "react-icons/fa";
 
 const adminsidebarItems = [
   {
     label: "Dashboard",
     icon: <FaTachometerAlt />,
-    link: "/admin/dashboard",
+    link: "#/admin/dashboard",
   },
   {
     label: "User Management",
@@ -36,17 +35,17 @@ const adminsidebarItems = [
     children: [
       {
         label: "All Users",
-        link: "/admin/dashboard/user",
+        link: "#/admin/dashboard/user",
         icon: <FaUserPlus />,
       },
       {
         label: "Add User",
-        link: "/admin/dashboard/add-user",
+        link: "#/admin/dashboard/add-user",
         icon: <FaUserPlus />,
       },
       {
         label: "Deactivated Users",
-        link: "/admin/dashboard/deactive-user",
+        link: "#/admin/dashboard/deactive-user",
         icon: <FaShieldAlt />,
       },
     ],
@@ -57,12 +56,12 @@ const adminsidebarItems = [
     children: [
       {
         label: "Study Materials",
-        link: "/admin/dashboard/all-notes",
+        link: "#/admin/dashboard/all-notes",
         icon: <FaBook />,
       },
       {
         label: "Upload New Material",
-        link: "/admin/dashboard/upload-pdf",
+        link: "#/admin/dashboard/upload-pdf",
         icon: <FaCloudUploadAlt />,
       },
     ],
@@ -73,12 +72,12 @@ const adminsidebarItems = [
     children: [
       {
         label: "Create Exam",
-        link: "/admin/dashboard/exam-upload",
+        link: "#/admin/dashboard/exam-upload",
         icon: <FaLayerGroup />,
       },
       {
         label: "All Exams",
-        link: "/admin/dashboard/all-exams",
+        link: "#/admin/dashboard/all-exams",
         icon: <FaFileAlt />,
       },
     ],
@@ -89,7 +88,7 @@ const adminsidebarItems = [
     children: [
       {
         label: "Student Reports",
-        link: "/admin/dashboard/student-performance-report",
+        link: "#/admin/dashboard/student-performance-report",
         icon: <FaChartBar />,
       },
     ],
@@ -100,12 +99,12 @@ const adminsidebarItems = [
     children: [
       {
         label: "Recent Notifications",
-        link: "/admin/notifications/logs",
+        link: "#/admin/notifications/logs",
         icon: <FaBellSlash />,
       },
       {
         label: "Configure Templates",
-        link: "/admin/notifications/templates",
+        link: "#/admin/notifications/templates",
         icon: <FaClipboardList />,
       },
     ],
@@ -116,22 +115,22 @@ const adminsidebarItems = [
     children: [
       {
         label: "Role Management",
-        link: "/admin/settings/roles",
+        link: "#/admin/settings/roles",
         icon: <FaUsers />,
       },
       {
         label: "Security Settings",
-        link: "/admin/settings/security",
+        link: "#/admin/settings/security",
         icon: <FaUserShield />,
       },
       {
         label: "Notification Settings",
-        link: "/admin/settings/notifications",
+        link: "#/admin/settings/notifications",
         icon: <FaBellSlash />,
       },
       {
         label: "Audit Logs",
-        link: "/admin/settings/logs",
+        link: "#/admin/settings/logs",
         icon: <FaClipboardList />,
       },
     ],
@@ -141,7 +140,7 @@ export const teacherSidebarItems = [
   {
     label: "Dashboard",
     icon: <FaTachometerAlt />,
-    link: "/teacher/dashboard",
+    link: "#/teacher/dashboard",
   },
   {
     label: "Content Management",
@@ -149,12 +148,12 @@ export const teacherSidebarItems = [
     children: [
       {
         label: "Study Materials",
-        link: "/teacher/dashboard/all-notes",
+        link: "#/teacher/dashboard/all-notes",
         icon: <FaBook />,
       },
       {
         label: "Upload New Material",
-        link: "/teacher/dashboard/upload-pdf",
+        link: "#/teacher/dashboard/upload-pdf",
         icon: <FaCloudUploadAlt />,
       },
     ],
@@ -165,12 +164,12 @@ export const teacherSidebarItems = [
     children: [
       {
         label: "Create Exam",
-        link: "/teacher/dashboard/exam-upload",
+        link: "#/teacher/dashboard/exam-upload",
         icon: <FaLayerGroup />,
       },
       {
         label: "All Exams",
-        link: "/teacher/dashboard/all-exams",
+        link: "#/teacher/dashboard/all-exams",
         icon: <FaFileAlt />,
       },
     ],
@@ -181,7 +180,7 @@ export const teacherSidebarItems = [
     children: [
       {
         label: "Student Reports",
-        link: "/teacher/dashboard/student-performance-report",
+        link: "#/teacher/dashboard/student-performance-report",
         icon: <FaChartBar />,
       },
     ],
@@ -192,17 +191,17 @@ export const studentSidebarItems = [
   {
     label: "Dashboard",
     icon: <FaTachometerAlt />,
-    link: "/student/dashboard",
+    link: "#/student/dashboard",
   },
   {
     label: "Course",
     icon: <FaTachometerAlt />,
-    link: "/student/dashboard/course",
+    link: "#/student/dashboard/course",
   },
   {
     label: "Study Materials",
     icon: <FaBook />,
-    link: "/student/dashboard/studyCategory",
+    link: "#/student/dashboard/studyCategory",
   },
   {
     label: "My Exams",
@@ -210,35 +209,35 @@ export const studentSidebarItems = [
     children: [
       {
         label: "Upcoming Exams",
-        link: "/student/dashboard/examcategory",
+        link: "#/student/dashboard/examcategory",
         icon: <FaClock />,
       },
       {
         label: "Past Exams",
-        link: "/student/dashboard/all-exams",
+        link: "#/student/dashboard/all-exams",
         icon: <FaFileAlt />,
       },
     ],
   },
   {
     label: "Result",
-    icon: <FaFileAlt  />,
-    link: "/student/dashboard/result",
+    icon: <FaFileAlt />,
+    link: "#/student/dashboard/result",
   },
   {
     label: "AI Assistant",
     icon: <FaRobot />,
-    link: "/student/dashboard/aipage",
+    link: "#/student/dashboard/aipage",
   },
-   {
+  {
     label: "Assignment",
     icon: <FaBell />,
-    link: "/student/dashboard/assignment",
+    link: "#/student/dashboard/assignment",
   },
   {
     label: "Notifications",
     icon: <FaBell />,
-    link: "/student/notifications",
+    link: "#/student/notifications",
   },
 ];
 
