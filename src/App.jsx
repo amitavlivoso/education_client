@@ -38,6 +38,8 @@ import StudentPerformanceReport from "./components/Teacher/PerformanceReport/Stu
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import VerifyOtp from "./pages/VerifyOtp";
+import ExamPage from "./pages/Teacher/ExamPage";
+import ExamListPage from "./pages/Teacher/ExamListPage";
 
 function App() {
   return (
@@ -52,7 +54,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="verify-otp" element={<VerifyOtp />} />
-            
+             <Route path="/exam/:examId" element={<ExamPage />} />
           </Route>
           <Route path="/:role/dashboard" element={<RoleLayout />}>
             <Route index element={<DashboardSwitch />} />
@@ -74,7 +76,8 @@ function App() {
 
 
             {/* Teacher */}
-
+            <Route path="exam-list" element={<ExamListPage />} />
+            <Route path="exam/:examId" element={<ExamPage />} />
             <Route path="upload-pdf" element={<Uploadpdf />} />
             <Route path="exam-upload" element={<ExamUpload />} />
             <Route path="all-exams" element={<AllExamsWithQuestions />} />
@@ -83,6 +86,7 @@ function App() {
               path="student-performance-report"
               element={<StudentPerformanceReport />}
             />
+           
           </Route>
         </Routes>
       </BrowserRouter>
