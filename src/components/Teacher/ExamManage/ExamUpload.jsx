@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import getUserId from "../../../services/axiosClient";
 
 export default function ExamUpload() {
   const subjects = {
@@ -56,7 +57,10 @@ export default function ExamUpload() {
     setAnswer("");
 
     if (updatedQuestions.length === parseInt(totalCount)) {
+      const userId = getUserId();
+      console.log("User ID in exam upload :", userId);
       const payload = {
+        teacher_id: userId,
         selectedExamType: selectedExamType,
         subjects: selectedSubject,
         chapter: selectedChapter,
