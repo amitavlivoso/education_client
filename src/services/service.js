@@ -23,3 +23,7 @@ export function uploadDocs(payLoad) {
 export function getAllCourse() {
   return axiosClient.get("/course/getCourses");
 }
+
+export function createExam(payLoad) {
+  return axiosClient.post("/teacher/createexam", payLoad);
+}

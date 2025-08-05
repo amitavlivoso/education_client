@@ -1,13 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
-import getUserId from "../../../services/axiosClient";
+import { getUserId } from "../../../services/axiosClient";
+import { createExam } from "../../../services/service";
 
 export default function ExamUpload() {
   const subjects = {
     Physics: ["Chapter 1: Motion", "Chapter 2: Force", "Chapter 3: Energy"],
     Chemistry: ["Chapter 1: Atoms", "Chapter 2: Bonds", "Chapter 3: Reactions"],
     Math: ["Chapter 1: Algebra", "Chapter 2: Geometry", "Chapter 3: Calculus"],
-    "Environmental Science": ["Chapter 1: Ecosystems", "Chapter 2: Pollution", "Chapter 3: Climate Change"]
+    "Environmental Science": [
+      "Chapter 1: Ecosystems",
+      "Chapter 2: Pollution",
+      "Chapter 3: Climate Change",
+    ],
   };
 
   const examTypes = ["10th", "JEE", "NEET"];
@@ -57,10 +62,8 @@ export default function ExamUpload() {
     setAnswer("");
 
     if (updatedQuestions.length === parseInt(totalCount)) {
-      const userId = getUserId();
-      console.log("User ID in exam upload :", userId);
       const payload = {
-        teacher_id: userId,
+        teacher_id: getUserId(),
         selectedExamType: selectedExamType,
         subjects: selectedSubject,
         chapter: selectedChapter,
@@ -73,7 +76,7 @@ export default function ExamUpload() {
       console.log("Payload to send at examUpload :", payload);
 
       try {
-        const response = await axios.post("http://localhost:8080/api/teacher/createexam", payload);
+        const response = createExam(payload);
         console.log("Response from server:", response.data);
       } catch (error) {
         console.error("Error uploading questions:", error);
@@ -95,7 +98,10 @@ export default function ExamUpload() {
     <div className="min-h-screen bg-gradient-to-br from-white to-indigo-50 py-8 px-4">
       <div className="max-w-5xl mx-auto">
         <header className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2"> Exam Question Uploader</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            {" "}
+            Exam Question Uploader
+          </h1>
           <p className="text-gray-600">Choose exam type and add MCQs</p>
         </header>
 
@@ -131,7 +137,10 @@ export default function ExamUpload() {
 
             {/* Subject & Chapter Selection */}
             <div className="bg-white p-6 rounded-2xl shadow mb-6 border border-gray-300">
-              <h2 className="text-lg font-semibold mb-4"> Select Subject & Chapter</h2>
+              <h2 className="text-lg font-semibold mb-4">
+                {" "}
+                Select Subject & Chapter
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <select
                   value={selectedSubject}
@@ -143,7 +152,9 @@ export default function ExamUpload() {
                 >
                   <option value="">Select Subject</option>
                   {Object.keys(subjects).map((subj) => (
-                    <option key={subj} value={subj}>{subj}</option>
+                    <option key={subj} value={subj}>
+                      {subj}
+                    </option>
                   ))}
                 </select>
 
@@ -155,7 +166,9 @@ export default function ExamUpload() {
                   >
                     <option value="">Select Chapter</option>
                     {subjects[selectedSubject].map((chap) => (
-                      <option key={chap} value={chap}>{chap}</option>
+                      <option key={chap} value={chap}>
+                        {chap}
+                      </option>
                     ))}
                   </select>
                 )}
