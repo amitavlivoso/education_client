@@ -176,7 +176,7 @@ export const teacherSidebarItems = [
       },
       {
         label: "All Exams",
-        link: "/teacher/dashboard/exam-list",
+        link: "#/teacher/dashboard/exam-list",
         icon: <FaFileAlt />,
       },
     ],
