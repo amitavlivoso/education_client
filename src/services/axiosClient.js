@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:8080/api", // Replace with your actual backend URL
+  baseURL: "http://livoso.in/education/education-backend/api", 
   headers: {
     "Content-Type": "application/json",
   },
@@ -18,3 +18,5 @@ axiosClient.interceptors.request.use((config) => {
 });
 
 export default axiosClient;
+
+
