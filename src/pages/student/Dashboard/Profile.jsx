@@ -1,5 +1,12 @@
-import React from 'react';
-import { FaUserGraduate, FaEnvelope, FaPhone, FaSchool, FaLock } from 'react-icons/fa';
+import React from "react";
+import {
+  FaUserGraduate,
+  FaEnvelope,
+  FaPhone,
+  FaSchool,
+  FaLock,
+} from "react-icons/fa";
+import { getUserName } from "../../../services/axiosClient";
 
 const Profile = () => {
   return (
@@ -10,7 +17,9 @@ const Profile = () => {
           <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-indigo-200 flex items-center justify-center text-4xl text-white font-bold">
             <FaUserGraduate />
           </div>
-          <h2 className="text-3xl font-bold text-indigo-700">Student Profile</h2>
+          <h2 className="text-3xl font-bold text-indigo-700">
+            {getUserName()} Profile
+          </h2>
           <p className="text-gray-500">Manage your personal information</p>
         </div>
 

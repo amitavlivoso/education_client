@@ -15,13 +15,13 @@ import {
   FaClipboardList,
   FaClock,
   FaLayerGroup,
-  FaSearch,
   FaBell,
   FaBellSlash,
   FaCog,
   FaUserShield,
   FaRobot,
 } from "react-icons/fa";
+import { getUserRole } from "../../../services/axiosClient";
 
 const adminsidebarItems = [
   {
@@ -140,7 +140,7 @@ export const teacherSidebarItems = [
   {
     label: "Dashboard",
     icon: <FaTachometerAlt />,
-    link: "#/teacher/dashboard",
+    link: "#/teacher/dashboard/student-performance-report",
   },
   {
     label: "Content Management",
@@ -250,8 +250,7 @@ export const studentSidebarItems = [
 
 export default function AdminSidebar({ onClose }) {
   let sidebarItems = [];
-  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-  const role = storedUser?.role || "";
+  const role = getUserRole();
 
   if (role === "admin") {
     sidebarItems = adminsidebarItems;
