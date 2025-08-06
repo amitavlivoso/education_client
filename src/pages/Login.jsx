@@ -101,7 +101,7 @@ const Login = () => {
             <p className="text-xs text-gray-600 text-center">
               Not Registered?{" "}
               <a
-                href="/register"
+                href="#/signup"
                 className="text-indigo-600 font-medium hover:underline"
               >
                 Register

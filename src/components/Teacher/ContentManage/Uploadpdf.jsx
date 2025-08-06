@@ -37,7 +37,6 @@ export default function Uploadpdf() {
 
     console.log("Appending file to formData:", selectedFile); // Debug log
     console.log("FormData contents:", [...formData.entries()]);
-
     try {
       const res = await uploadDocs(formData);
       console.log("Upload response:", res);
