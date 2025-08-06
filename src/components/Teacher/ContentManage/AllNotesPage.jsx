@@ -7,7 +7,7 @@ const examTypes = ["10th", "jee", "neet"];
 
 export default function AllNotesPage() {
   const [notes, setNotes] = useState([]);
-  console.log("notes",notes)
+  console.log("notes", notes)
   const [editingNote, setEditingNote] = useState(null);
   const [editForm, setEditForm] = useState({ subject: "", chapter: "" });
   const [selectedExamType, setSelectedExamType] = useState("");
@@ -70,11 +70,10 @@ export default function AllNotesPage() {
         {examTypes.map((type) => (
           <button
             key={type}
-            className={`px-8 py-6 rounded-xl font-semibold shadow-md border-2 transition ${
-              selectedExamType === type
+            className={`px-8 py-6 rounded-xl font-semibold shadow-md border-2 transition ${selectedExamType === type
                 ? "bg-blue-600 text-white border-blue-600"
                 : "bg-white text-blue-600 border-blue-300 hover:bg-blue-50"
-            }`}
+              }`}
             onClick={() => setSelectedExamType(type)}
           >
             {type.toUpperCase()}
@@ -89,6 +88,10 @@ export default function AllNotesPage() {
             key={note.id}
             className="bg-white shadow-md rounded-xl p-5 border hover:shadow-lg transition relative"
           >
+            <p className="text-xs text-gray-400 mb-4">
+              📅 Uploaded on: {new Date(note.createdAt).toLocaleString()}
+            </p>
+
             <div className="absolute top-3 right-3 flex gap-3 text-gray-600">
               <FiEdit
                 onClick={() => handleEditClick(note)}

@@ -8,7 +8,7 @@ const getColor = (qid, visited, answers) => {
 
 const QuestionPalette = ({ questions, answers, visited, currentIndex, onNavigate }) => {
   return (
-    <div className="w-1/4">
+    <div className="lg:w-1/4 ">
       <h3 className="font-bold mb-2">Question Palette</h3>
       <div className="grid grid-cols-5 gap-2">
         {questions.map((q, idx) => (

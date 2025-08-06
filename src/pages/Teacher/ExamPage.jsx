@@ -7,6 +7,8 @@ import QuestionPalette from '../../components/Teacher/ExamManage/QuestionPalette
 const ExamPage = () => {
   const { examId } = useParams();
   const numericExamId = Number(examId);
+  const STORAGE_KEY = `exam_${numericExamId}_state`;
+
 
   const [examData, setExamData] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,21 +21,49 @@ const ExamPage = () => {
   const isSubmitted = useRef(false); // To prevent double submission
 
   // Fetch exam
-  useEffect(() => {
-    async function fetchExam() {
-      try {
-        const res = await axios.get('http://localhost:8080/api/teacher/getexam');
-        const exam = res.data?.exams.find((e) => Number(e.id) === numericExamId);
-        setExamData(exam);
-        if (exam) {
-          setTimeLeft(exam.estimated_time * 60); // in seconds
+useEffect(() => {
+  async function fetchExam() {
+    try {
+      const res = await axios.get('http://localhost:8080/api/teacher/getexam');
+      const exam = res.data?.exams.find((e) => Number(e.id) === numericExamId);
+      setExamData(exam);
+
+      if (exam) {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          setCurrentIndex(parsed.currentIndex || 0);
+          setAnswers(parsed.answers || {});
+          setVisited(parsed.visited || {});
+          setTimeLeft(parsed.timeLeft ?? exam.estimated_time * 60);
+          setShowResult(parsed.showResult || false);
+        } else {
+          setTimeLeft(exam.estimated_time * 60);
         }
-      } catch (error) {
-        console.error('Error fetching exam:', error);
       }
+    } catch (error) {
+      console.error('Error fetching exam:', error);
     }
-    fetchExam();
-  }, [numericExamId]);
+  }
+
+  fetchExam();
+}, [numericExamId]);
+
+useEffect(() => {
+  if (!examData) return;
+
+  const stateToSave = {
+    currentIndex,
+    answers,
+    visited,
+    timeLeft,
+    showResult,
+  };
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+}, [currentIndex, answers, visited, timeLeft, showResult, examData]);
+
+
 
   // Timer countdown and auto-submit
   useEffect(() => {
@@ -65,10 +95,12 @@ const ExamPage = () => {
   };
 
   const handleSubmit = () => {
-    if (isSubmitted.current) return; // prevent double submission
-    clearInterval(timerRef.current);
-    setShowResult(true);
-    isSubmitted.current = true;
+    if (isSubmitted.current) return;
+  clearInterval(timerRef.current);
+  setShowResult(true);
+  isSubmitted.current = true;
+
+  localStorage.removeItem(STORAGE_KEY); // Clear saved data
   };
 
   const calculateResults = () => {
