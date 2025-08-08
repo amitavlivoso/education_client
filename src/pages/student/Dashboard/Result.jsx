@@ -1,36 +1,28 @@
-import React from "react";
+import React, { use } from "react";
 import { FaCheckCircle, FaTimesCircle, FaListAlt } from "react-icons/fa";
+import { getUserId } from "../../../services/axiosClient";
+import { BiTrophy } from "react-icons/bi";
+import { useState, useEffect } from "react";
 
 const Result = () => {
-  const results = [
-    {
-      subject: "Mathematics",
-      time: "09:30 AM",
-      obtained: 42,
-      total: 50,
-      totalQ: 10,
-      correct: 8,
-      wrong: 2,
-    },
-    {
-      subject: "Science",
-      time: "11:00 AM",
-      obtained: 45,
-      total: 50,
-      totalQ: 10,
-      correct: 9,
-      wrong: 1,
-    },
-    {
-      subject: "English",
-      time: "01:15 PM",
-      obtained: 40,
-      total: 50,
-      totalQ: 10,
-      correct: 7,
-      wrong: 3,
-    },
-  ];
+  const [results, setResults] = useState([]);
+  const userId = getUserId();
+  useEffect(() => {
+    async function fetchResults() {
+      try {
+        const response = await fetch(`http://localhost:8080/api/student/getresults/${userId}`);
+        const data = await response.json();
+        setResults(data.results || []); // Adjust according to your API response structure
+        console.log("Fetched results:", data.results);
+      } catch (error) {
+        console.error("Error fetching results:", error);
+        setResults([]);
+      }
+    }
+    fetchResults();
+  }, []);
+
+
 
   return (
     <div className="min-h-screen  py-12 px-4 sm:px-10">
@@ -48,14 +40,14 @@ const Result = () => {
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-bold text-blue-800">{res.subject}</h3>
               <span className="text-sm text-gray-700 bg-blue-100 px-2 py-0.5 rounded-full">
-                🕒 {res.time}
+                🕒 {new Date(res.createdAt).toLocaleDateString('en-GB')}
               </span>
             </div>
 
             {/* Score */}
             <div className="text-center mb-6">
               <h4 className="text-3xl font-extrabold text-indigo-600 drop-shadow">
-                {res.obtained}/{res.total}
+                {res.correct}/{res.total}
               </h4>
               <p className="text-sm text-gray-600 mt-1">Marks Obtained</p>
             </div>
@@ -65,7 +57,7 @@ const Result = () => {
               <div className="bg-gray-100 p-3 rounded-lg shadow-inner">
                 <FaListAlt className="mx-auto text-gray-600 text-xl mb-1" />
                 <p className="text-sm text-gray-600">Total</p>
-                <p className="font-semibold">{res.totalQ}</p>
+                <p className="font-semibold">{res.total}</p>
               </div>
               <div className="bg-green-100 p-3 rounded-lg shadow-inner">
                 <FaCheckCircle className="mx-auto text-green-600 text-xl mb-1" />

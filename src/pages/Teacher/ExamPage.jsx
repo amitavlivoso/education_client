@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import QuestionCard from '../../components/Teacher/ExamManage/QuestionCard';
 import QuestionPalette from '../../components/Teacher/ExamManage/QuestionPalette';
+import { getUserId } from '../../services/axiosClient';
 
 const ExamPage = () => {
   const { examId } = useParams();
@@ -63,7 +64,7 @@ useEffect(() => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
 }, [currentIndex, answers, visited, timeLeft, showResult, examData]);
 
-
+// localStorage.removeItem(STORAGE_KEY);
 
   // Timer countdown and auto-submit
   useEffect(() => {
@@ -94,14 +95,7 @@ useEffect(() => {
     setVisited((prev) => ({ ...prev, [questionId]: true }));
   };
 
-  const handleSubmit = () => {
-    if (isSubmitted.current) return;
-  clearInterval(timerRef.current);
-  setShowResult(true);
-  isSubmitted.current = true;
-
-  localStorage.removeItem(STORAGE_KEY); // Clear saved data
-  };
+  
 
   const calculateResults = () => {
     let attempted = 0, correct = 0;
@@ -127,6 +121,44 @@ useEffect(() => {
   const questions = examData.questions;
   const currentQuestion = questions[currentIndex];
   const result = calculateResults();
+
+
+
+  const handleSubmit = async() => {
+    if (isSubmitted.current) return;
+  clearInterval(timerRef.current);
+  setShowResult(true);
+  isSubmitted.current = true;
+
+  localStorage.removeItem(STORAGE_KEY); // Clear saved data
+
+  const result = calculateResults();
+
+  const payload={
+     examId: numericExamId,
+      userId: getUserId(), // You must set this earlier when user logs in
+      attempted: result.attempted,
+      correct: result.correct,
+      wrong: result.wrong,
+      unattempted: result.unattempted,
+      total: result.total,
+      status: 'completed',
+      subject: examData.subject,
+      chapter: examData.chapter,
+  }
+  console.log("Submitting exam result:", payload);
+
+  try{
+
+    await axios.post("http://localhost:8080/api/student/saveResult", payload);
+    alert("Exam submitted successfully!");
+    console.log("Exam submitted successfully!", payload);
+  }catch(error){
+    console.error('Error submitting exam:', error);
+  }
+
+  
+  };
 
   return (
     <div className="flex flex-col md:flex-row gap-4 p-4">

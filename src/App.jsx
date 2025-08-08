@@ -63,7 +63,7 @@ function App() {
             <Route path="deactive-user" element={<DeActivated />} />
 
             {/* Student  */}
-            <Route path="examcategory" element={<Examcategory />} />
+             <Route path="exam-list" element={<ExamListPage />} />
             <Route path="exam" element={<Exam />} />
             <Route path="thankyou" element={<Thankyou />} />
             <Route path="studymaterial/:type" element={<Studymaterial />} />

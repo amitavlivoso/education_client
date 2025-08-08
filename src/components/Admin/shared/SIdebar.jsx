@@ -216,7 +216,7 @@ export const studentSidebarItems = [
     children: [
       {
         label: "Upcoming Exams",
-        link: "#/student/dashboard/examcategory",
+        link: "#/student/dashboard/exam-list",
         icon: <FaClock />,
       },
       {
