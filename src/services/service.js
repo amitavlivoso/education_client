@@ -28,7 +28,10 @@ export function createExam(payLoad) {
   return axiosClient.post("/teacher/createexam", payLoad);
 }
 
-export function getAllUserByCond(payLoad){
-  return axiosClient.post("/auth/userfilter",payLoad)
+export function getAllUserByCond(payLoad) {
+  return axiosClient.post("/auth/userfilter", payLoad);
 }
 
+export function askGpt(payLoad) {
+  return axiosClient.post("/ai/ask", payLoad);
+}
