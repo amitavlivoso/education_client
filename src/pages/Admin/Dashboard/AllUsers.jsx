@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllUserByCond } from "../../../services/service";
 
 export default function AllUsersTable() {
   const dummyUsers = [
@@ -32,6 +34,9 @@ export default function AllUsersTable() {
     },
   ];
 
+  useEffect (()=>{
+    getAllUserByCond()
+  },[])
   const statusClasses = {
     Active: "bg-green-100 text-green-800 border border-green-300",
     Inactive: "bg-red-100 text-red-700 border border-red-300",
