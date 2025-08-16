@@ -179,6 +179,11 @@ export const teacherSidebarItems = [
         link: "#/teacher/dashboard/exam-list",
         icon: <FaFileAlt />,
       },
+      {
+        label: "Student Result",
+        link: "#/teacher/dashboard/resultt",
+        icon: <FaFileAlt />,
+      },
     ],
   },
   {

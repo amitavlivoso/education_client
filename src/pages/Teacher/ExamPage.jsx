@@ -52,7 +52,7 @@ useEffect(() => {
 
 useEffect(() => {
   if (!examData) return;
-
+  
   const stateToSave = {
     currentIndex,
     answers,
@@ -121,9 +121,6 @@ useEffect(() => {
   const questions = examData.questions;
   const currentQuestion = questions[currentIndex];
   const result = calculateResults();
-
-
-
   const handleSubmit = async() => {
     if (isSubmitted.current) return;
   clearInterval(timerRef.current);

@@ -40,6 +40,7 @@ import SignUp from "./pages/SignUp";
 import VerifyOtp from "./pages/VerifyOtp";
 import ExamPage from "./pages/Teacher/ExamPage";
 import ExamListPage from "./pages/Teacher/ExamListPage";
+import Resultt from "./components/Teacher/Result/TeacherStudentResults";
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function App() {
             <Route path="exam-upload" element={<ExamUpload />} />
             <Route path="all-exams" element={<AllExamsWithQuestions />} />
             <Route path="all-notes" element={<AllNotesPage />} />
+            <Route path="resultt" element={<Resultt />} />
             <Route
               path="student-performance-report"
               element={<StudentPerformanceReport />}
